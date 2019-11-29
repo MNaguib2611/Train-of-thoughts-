@@ -1,0 +1,78 @@
+.game_screen{
+    background-image : url("../img/backbround.jpg");
+    width: 500px;
+    height: 600px;
+    margin: auto;
+    margin-top: 2% ;
+    text-align: left;
+}
+body{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.rails{
+    position: absolute;
+    width: 30px;
+
+}
+.rail1{
+    height: 150px;
+    margin-left: 30px;
+    margin-top: 50px;;
+}
+.rail2{
+    height: 150px;
+    margin-left: 200px;
+    margin-top: 220px;
+    transform: rotate(90deg);
+}
+.rail3{
+    height: 150px;
+    margin-left: 120px;
+    margin-top: 150px;
+    transform: rotate(90deg);
+}
+.rail4{
+    height: 150px;
+    margin-left: 100px;
+    margin-top: 320px;
+}
+.turns{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+}
+.turn1{
+    margin-top: 250px;
+    margin-left: 30px;
+}
+.switchs{
+    position: absolute;
+    height: 50px;
+    width: 50px;    
+}
+.switch1{
+    margin-top: 200px;
+    margin-left: 20px;
+}
+.switch2{
+    margin-top: 270px;
+    margin-left: 90px;
+}
+.start{
+    position: absolute;
+    width: 53px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 20px;
+    z-index: 7;
+}
+.train{
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    margin-top: 22px;
+    margin-left: 35px;
+    z-index: 5;
+}

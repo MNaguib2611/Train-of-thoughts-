@@ -1,4 +1,8 @@
-var point = function(x,y) {
-    this.x=x;
-    this.y=y;
+var Point = function(x,y) {
+    this.x=x.toString();
+    this.y=y.toString();
 }
+
+point1= new Point();
+
+

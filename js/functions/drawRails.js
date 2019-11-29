@@ -9,9 +9,13 @@ railsArr.forEach(element => {
     ctx.beginPath();
     ctx.moveTo(element.start.x, element.start.y);
     ctx.lineTo(element.end.x, element.end.y);
+    if (element.direction ==1) {
+        ctx.moveTo(element.start.x+10, element.start.y);
+        ctx.lineTo(element.end.x+10, element.end.y); 
+    }else{
+        ctx.moveTo(element.start.x, element.start.y+10);
+        ctx.lineTo(element.end.x, element.end.y+10);
+    }
     ctx.stroke();
 });
 
-
-
-var point1

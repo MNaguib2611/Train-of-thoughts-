@@ -34,7 +34,7 @@ switch2State = !switch2State;
 }
 
 var trainIntervalId=setInterval(tainMove,100);
-var limet=new point(200,0);
+var limet=new Point(200,0);
 train1Rail=0;
 var direction=1;
 train1.style["margin-top"]="22px";

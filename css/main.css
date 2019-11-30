@@ -3,3 +3,85 @@ body{
     background-color: darkgreen;
 }
 
+#mainStation{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 7%;
+    z-index: 0;
+}
+
+#first-switch{
+    position: absolute;
+    top: 258px;
+    left: 24px;
+    width: 5%;
+    z-index: 0;
+}
+
+#second-switch{
+    position: absolute;
+    top: 200px;
+    left: 193px;
+    width: 5%;
+    z-index: 0;
+}
+#third-switch{
+    position: absolute;
+    top: 21px;
+    left: 500px;
+    width: 5%;
+    z-index: 0;
+}
+#fourth-switch{
+    position: absolute;
+    top: 393px;
+    left: 320px;
+    width: 5%;
+    z-index: 0;
+}
+
+#fifth-switch{
+    position: absolute;
+    top: 393px;
+    left: 580px;
+    width: 5%;
+    z-index: 0;
+}
+#first-station{
+
+    position: absolute;
+    top: 21px;
+    left: 1010px;
+    width: 5%;
+    z-index: 1000;
+
+}
+#second-station{
+
+    position: absolute;
+    top: 393px;
+    left: 1010px;
+    width: 5%;
+    z-index: 1000;
+
+}
+
+#third-station{
+
+    position: absolute;
+    top: 640px;
+    left: 320px;
+    width: 5%;
+    z-index: 1000;
+
+}
+#fourth-station{
+
+    position: absolute;
+    top: 640px;
+    left: 580px;
+    width: 5%;
+    z-index: 1000;
+
+}

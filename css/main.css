@@ -5,7 +5,7 @@ body{
 
 #mainStation{
     position: absolute;
-    top: 15px;
+    top: 40px;
     left: 15px;
     width: 7%;
     z-index: 0;
@@ -15,7 +15,7 @@ body{
     position: absolute;
     top: 258px;
     left: 24px;
-    width: 5%;
+    width: 68px;
     z-index: 0;
 }
 
@@ -23,21 +23,21 @@ body{
     position: absolute;
     top: 200px;
     left: 193px;
-    width: 5%;
+    width: 68px;
     z-index: 0;
 }
 #third-switch{
     position: absolute;
     top: 21px;
     left: 500px;
-    width: 5%;
+    width: 68px;
     z-index: 0;
 }
 #fourth-switch{
     position: absolute;
     top: 393px;
     left: 320px;
-    width: 5%;
+    width: 68px;
     z-index: 0;
 }
 
@@ -45,7 +45,15 @@ body{
     position: absolute;
     top: 393px;
     left: 580px;
-    width: 5%;
+    width: 68px;
+    z-index: 0;
+}
+
+#sixth-switch{
+    position: absolute;
+    top: 197px;
+    left: 700px;
+    width: 68px;
     z-index: 0;
 }
 #first-station{
@@ -61,7 +69,7 @@ body{
 
     position: absolute;
     top: 393px;
-    left: 1010px;
+    left: 1000px;
     width: 5%;
     z-index: 1000;
 
@@ -70,8 +78,8 @@ body{
 #third-station{
 
     position: absolute;
-    top: 640px;
-    left: 320px;
+    top: 520px;
+    left: 100px;
     width: 5%;
     z-index: 1000;
 
@@ -79,8 +87,36 @@ body{
 #fourth-station{
 
     position: absolute;
-    top: 640px;
+    top: 530px;
     left: 580px;
+    width: 5%;
+    z-index: 1000;
+
+}
+#fifth-station{
+
+    position: absolute;
+    top: 120px;
+    left: 502px;
+    width: 5%;
+    z-index: 1000;
+
+}
+
+#sixth-station{
+
+    position: absolute;
+    top: 128px;
+    left: 700px;
+    width: 5%;
+    z-index: 1000;
+
+}
+#seventh-station{
+
+    position: absolute;
+    top: 190px;
+    left: 1000px;
     width: 5%;
     z-index: 1000;
 

@@ -3,7 +3,7 @@ var secondSwitch =document.getElementById("second-switch");
 var thirdSwitch =document.getElementById("third-switch");
 var fourthSwitch =document.getElementById("fourth-switch");
 var fifthSwitch =document.getElementById("fifth-switch");
-
+var sixthSwitch =document.getElementById("sixth-switch");
 
 function changeFirstSwitcher(){
     if (firstSwitch.getAttribute("src")=="img/switch3.png") {
@@ -40,10 +40,17 @@ function changeFifthSwitcher(){
         fifthSwitch.setAttribute("src","img/switch4.png");
     }
 }
-
+function changeSixthSwitcher(){
+    if (sixthSwitch.getAttribute("src")=="img/switch2.png") {
+        sixthSwitch.setAttribute("src","img/switch5.png");
+    }else if(sixthSwitch.getAttribute("src")=="img/switch5.png"){
+        sixthSwitch.setAttribute("src","img/switch2.png");
+    }
+}
 
 firstSwitch.addEventListener('click',changeFirstSwitcher);
 secondSwitch.addEventListener('click',changeSecondSwitcher);
 thirdSwitch.addEventListener('click',changeThirdSwitcher);
 fourthSwitch.addEventListener('click',changeFourthSwitcher);
 fifthSwitch.addEventListener('click',changeFifthSwitcher);
+sixthSwitch.addEventListener('click',changeSixthSwitcher);

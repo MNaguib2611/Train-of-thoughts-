@@ -34,16 +34,18 @@ var rail10 = new Rail(point20,point21,0);
 var rail11 = new Rail(point22,point23,0);
 var rail12 = new Rail(point24,point25,1);
 var rail13 = new Rail(point26,point27,1);
-
+var rail14 = new Rail(point28,point29,0);
+var rail15 = new Rail(point30,point31,0);
 
 
 
 var curvedRail1 = new CurvedRail(point4,true,0.5,2);
 var curvedRail2 = new CurvedRail(point6Curve,false,.5,1);
 var curvedRail3 = new CurvedRail(point9Curve,false,1,1.5);
-var curvedRail4 = new CurvedRail(point17,true,0.5,2);
+// var curvedRail4 = new CurvedRail(point17,true,0.5,2);
+var curvedRail5 = new CurvedRail(point25Curved,true,.5,2);
 
 //----all railways objects will be stored in railsArr --
 //----all curved railways objects will be stored in curvedRailsArr --
-var railsArr=[rail1,rail2,rail3,rail4,rail5,rail6,rail7,rail8,rail9,rail10,rail11,rail12,rail13]; 
-var curvedRailsArr=[curvedRail1,curvedRail2,curvedRail3,curvedRail4];       
+var railsArr=[rail1,rail2,rail3,rail4,rail5,rail6,rail7,rail8,rail9,rail10,rail11,rail12,rail13,rail14,rail15]; 
+var curvedRailsArr=[curvedRail1,curvedRail2,curvedRail3,curvedRail5];       

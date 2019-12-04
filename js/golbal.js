@@ -5,17 +5,21 @@ train1.imgObj=document.getElementById("train1");
 var switch1State=1;
 var switch2State=1;
 var rails=new Array();
-for(i=0;i<6;i++){
+for(i=0;i<=6;i++){
 rails[i]=new Rail();
 rails[i].imgObj=document.getElementsByClassName("rail"+(i+1))[0];
 }
 var switchs=new Array();
-for(i=0;i<2;i++){
+for(i=0;i<6;i++){
     switchs[i]=new Switch();
     switchs[i].imgObj=document.getElementsByClassName("switch"+(i+1))[0];
 }
 switchs[0].imgObj.addEventListener("click",f1);
 switchs[1].imgObj.addEventListener("click",f2);
+// switchs[2].imgObj.addEventListener("click",f3);
+// switchs[3].imgObj.addEventListener("click",f4);
+// switchs[4].imgObj.addEventListener("click",f5);
+// switchs[5].imgObj.addEventListener("click",f6);
 
 switchs[0].nextId=2;
 switchs[0].firstNextId=4;//turn
@@ -35,9 +39,9 @@ rails[1].nextId=1;
 rails[1].nextType=3;
 rails[1].direction=0;
 
-rails[2].nextId=5;
-rails[2].nextType=0;
-rails[1].direction=0;
+rails[2].nextId=3;
+rails[2].nextType=1;
+rails[2].direction=0;
 
 rails[3].nextId=3;
 rails[3].nextType=3;
@@ -49,7 +53,11 @@ rails[4].direction=1;
 
 rails[5].nextId=2;
 rails[5].nextType=3;
-rails[5].direction=0;
+rails[5].direction=1;
+
+rails[6].nextId=2;
+rails[6].nextType=3;
+rails[6].direction=0;
 
 
 //rails[1].imgObj.style.display = "none";
@@ -91,7 +99,17 @@ switchs[1].state=!switchs[1].state;
 switch2State = !switch2State;
 }
 
-var trainIntervalId=setInterval(tainMove,20);
+// function f3(){
+//     if(switch3State){
+//         switch3.src="./img/switch5.png";
+//     }
+//     else{
+//         switch3.src="./img/switch4.png";
+//     }
+
+
+
+var trainIntervalId=setInterval(tainMove,10);
 train1.direction=1;
 train1.imgObj.style["margin-top"]="22px";
 train1.imgObj.style["margin-left"]="35px";

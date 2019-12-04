@@ -1,9 +1,9 @@
 .game_screen{
     background-image : url("../img/backbround.jpg");
     width: 100%;
-    height: 600px;
+    height: 770px;
     margin: auto;
-    margin-top: 2% ;
+    /* margin-top: 2% ; */
     text-align: left;
 }
 body{
@@ -22,9 +22,9 @@ body{
     margin-top: 50px;;
 }
 .rail2{
-    height: 150px;
-    margin-left: 200px;
-    margin-top: 220px;
+    height: 250px;
+    margin-left: 230px;
+    margin-top: 170px;
     transform: rotate(90deg);
 }
 .rail3{
@@ -34,16 +34,111 @@ body{
     transform: rotate(90deg);
 }
 .rail4{
-    height: 150px;
+    height: 320px;
     margin-left: 100px;
     margin-top: 320px;
 }
 .rail6{
-    height: 150px;
-    margin-left: 230px;
-    margin-top: 150px;
+    height: 90px;
+    margin-left: 200px;
+    margin-top: 90px;
+    /* transform: rotate(90deg); */
+}
+.rail7{
+    height: 90px;
+    margin-left: 290px;
+    margin-top: 0px;
     transform: rotate(90deg);
 }
+.rail8{
+    height: 90px;
+    margin-left: 380px;
+    margin-top: 0px;
+    transform: rotate(90deg);
+}
+.rail9{
+    height: 90px;
+    margin-left: 515px;
+    margin-top: 0px;
+    transform: rotate(90deg);
+}
+.rail10{
+    height: 90px;
+    margin-left: 605px;
+    margin-top: 0px;
+    transform: rotate(90deg);
+}
+.rail11{
+    height: 90px;
+    margin-left: 695px;
+    margin-top: 0px;
+    transform: rotate(90deg);
+}
+.rail12{
+    height: 280px;
+    margin-left: 515px;
+    margin-top: 155px;
+    transform: rotate(90deg);
+}
+.rail13{
+    height: 90px;
+    margin-left: 820px;
+    margin-top: 0px;
+    transform: rotate(90deg);
+}
+.rail14{
+    height: 90px;
+    margin-left: 910px;
+    margin-top: 0px;
+    transform: rotate(90deg);
+}
+.rail15{
+    height: 90px;
+    margin-left: 1000px;
+    margin-top: 0px;
+    transform: rotate(90deg);
+}
+.rail16{
+    height: 90px;
+    margin-left: 1090px;
+    margin-top: 0px;
+    transform: rotate(90deg);
+}
+.rail17{
+    height: 350px;
+    margin-left: 840px;
+    margin-top: 120px;
+    transform: rotate(90deg);
+}
+.rail18{
+    height: 120px;
+    margin-left: 760px;
+    margin-top: 60px;
+}
+.rail19{
+    height: 120px;
+    margin-left: 450px;
+    margin-top: 60px;
+}
+.rail20{
+    height: 190px;
+    margin-left: 370px;
+    margin-top: 310px;
+}
+.rail21{
+    height: 190px;
+    margin-left: 660px;
+    margin-top: 310px;
+}
+.rail22{
+    height: 170px;
+    margin-left: 229px;
+    margin-top: 600px;
+    transform: rotate(90deg);
+}
+
+
+
 .turns{
     position: absolute;
     width: 60px;
@@ -52,6 +147,18 @@ body{
 .turn1{
     margin-top: 250px;
     margin-left: 30px;
+}
+.turn2{
+    margin-top: 180px;
+    margin-left: 170px;
+}
+.turn3{
+    margin-top: 30px;
+    margin-left: 200px;
+}
+.turn4{
+    margin-top: 640px;
+    margin-left: 99px;
 }
 .switchs{
     position: absolute;
@@ -66,6 +173,26 @@ body{
     margin-top: 270px;
     margin-left: 90px;
 }
+.switch3{
+    margin-top: 20px;
+    margin-left: 440px;
+}
+.switch4{
+    margin-top: 20px;
+    margin-left: 750px;
+}
+.switch5{
+    margin-top: 270px;
+    margin-left: 360px;
+}
+
+.switch6{
+    margin-top: 270px;
+    margin-left: 650px;
+}
+
+
+
 .start{
     position: absolute;
     width: 53px;

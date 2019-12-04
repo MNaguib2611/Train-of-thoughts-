@@ -1,9 +1,9 @@
-var switch1=document.getElementsByClassName("switch1")[0];
-var switch2=document.getElementsByClassName("switch2")[0];
+//var switch1=document.getElementsByClassName("switch1")[0];
+//var switch2=document.getElementsByClassName("switch2")[0];
 var train1=new Train();
 train1.imgObj=document.getElementById("train1");
-var switch1State=1;
-var switch2State=1;
+//var switch1State=1;
+//var switch2State=1;
 var rails=new Array();
 for(i=0;i<6;i++){
 rails[i]=new Rail();
@@ -46,7 +46,7 @@ rails[3].direction=1;
 rails[4].nextId=1;
 rails[4].nextType=1;
 rails[4].direction=1;
-
+console.log(rails[4]);
 rails[5].nextId=2;
 rails[5].nextType=3;
 rails[5].direction=0;
@@ -54,11 +54,11 @@ rails[5].direction=0;
 
 //rails[1].imgObj.style.display = "none";
 function f1(){
-if(switch1State){
-    switch1.src="./img/switch1.png";
+if(switchs[0].state==0){
+    switchs[0].imgObj.src="./img/switch1.png";
 }
 else{
-    switch1.src="./img/switch3.png";
+    switchs[0].imgObj.src="./img/switch3.png";
 }
 //swap
 var temp= switchs[0].firstNextId;
@@ -69,15 +69,15 @@ switchs[0].firstNextType=switchs[0].nextType;
 switchs[0].nextType=temp;
 /////
 switchs[0].state=!switchs[0].state;
-switch1State = !switch1State;
+//switch1State = !switch1State;
 }
 
 function f2(){
-if(switch2State){
-    switch2.src="./img/switch5.png";
+if(switchs[1].state==0){
+    switchs[1].imgObj.src="./img/switch5.png";
 }
 else{
-    switch2.src="./img/switch4.png";
+    switchs[1].imgObj.src="./img/switch4.png";
 }
 //swap
 var temp= switchs[1].firstNextId;
@@ -88,7 +88,7 @@ switchs[1].firstNextType=switchs[1].nextType;
 switchs[1].nextType=temp;
 /////
 switchs[1].state=!switchs[1].state;
-switch2State = !switch2State;
+//switch2State = !switch2State;
 }
 
 var trainIntervalId=setInterval(tainMove,20);
@@ -159,6 +159,7 @@ function tainMove(){
                         //alert("hello");
                         train1.limit.x+=45;
                         train1.limit.y+=45;
+                        debugger    
                         train1.direction=rails[train1.railId].direction;
                         if(train1.direction){
                             train1.imgObj.src="./img/train.png";

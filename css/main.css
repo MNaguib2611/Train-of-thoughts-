@@ -5,11 +5,13 @@
     margin: auto;
     /* margin-top: 2% ; */
     text-align: left;
+    overflow:hidden;
 }
 body{
     width: 100%;
     height: 100%;
     text-align: center;
+    overflow:hidden;
 }
 .rails{
     position: absolute;
@@ -193,6 +195,48 @@ body{
 
 
 
+.station{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+}
+.station1{
+    position: absolute;
+    top:170px;
+    left:435px;
+}
+.station2{
+    position: absolute;
+    top:170px;
+    left:745px;
+}
+.station3{
+    position: absolute;
+    top:20px;
+    left:1140px;
+}
+.station4{
+    position: absolute;
+    top:475px;
+    left:355px;
+}
+
+.station5{
+    position: absolute;
+    top:475px;
+    left:645px;
+}
+.station6{
+    position: absolute;
+    top:265px;
+    left:1010px;
+}
+
+.station7{
+    position: absolute;
+    top:655px;
+    left:305px;
+}
 .start{
     position: absolute;
     width: 53px;

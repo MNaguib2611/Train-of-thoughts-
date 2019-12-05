@@ -1,15 +1,13 @@
-//var switch1=document.getElementsByClassName("switch1")[0];
-//var switch2=document.getElementsByClassName("switch2")[0];
 var train1=new Train();
-train1.imgObj=document.getElementById("train1");
-//var switch1State=1;
-//var switch2State=1;
 var rails=new Array();
+var switchs=new Array();
+
+function GameInitializer(){
+    train1.imgObj=document.getElementById("train1");
 for(i=0;i<=6;i++){
 rails[i]=new Rail();
 rails[i].imgObj=document.getElementsByClassName("rail"+(i+1))[0];
 }
-var switchs=new Array();
 for(i=0;i<6;i++){
     switchs[i]=new Switch();
     switchs[i].imgObj=document.getElementsByClassName("switch"+(i+1))[0];
@@ -53,6 +51,19 @@ rails[6].nextId=2;
 rails[6].nextType=3;
 rails[6].direction=0;
 
+train1.direction=1;
+train1.imgObj.style["margin-top"]="22px";
+train1.imgObj.style["margin-left"]="35px";
+train1.railId=0;
+train1.railType=0;
+train1.limit=new Point(rails[train1.railId].imgObj.height,0);
+
+}
+//var switch1=document.getElementsByClassName("switch1")[0];
+//var switch2=document.getElementsByClassName("switch2")[0];
+//var switch1State=1;
+//var switch2State=1;
+
 
 function switchFunc(id,pic1,pic2){
     if(switchs[id].state==0){
@@ -83,13 +94,7 @@ function switchFunc(id,pic1,pic2){
 
 
 
-var trainIntervalId=setInterval(tainMove,10);
-train1.direction=1;
-train1.imgObj.style["margin-top"]="22px";
-train1.imgObj.style["margin-left"]="35px";
-train1.railId=0;
-train1.railType=0;
-train1.limit=new Point(rails[train1.railId].imgObj.height,0);
+//var trainIntervalId=setInterval(tainMove,10);
 
 function tainMove(){
     if(train1.direction==1){

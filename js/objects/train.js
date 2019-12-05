@@ -5,7 +5,7 @@ var Train = function(x,y) {
     this.imagid;
     this.speed=1;
     this.kind;
-    this.direction;
+    this.direction; //1->down 2->right 3->up
     this.imgObj;
     this.limit=new Point(x,y);
 }

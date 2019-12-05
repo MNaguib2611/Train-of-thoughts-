@@ -37,7 +37,7 @@ body{
     transform: rotate(90deg);
 }
 .rail4{
-    height: 320px;
+    height: 220px;
     margin-left: 150px;
     margin-top: 319px;
 }
@@ -101,7 +101,7 @@ body{
 }
 
 .rail15{
-    height: 190px;
+    height: 120px;
     margin-left: 370px;
     margin-top: 310px;
 }
@@ -111,9 +111,9 @@ body{
     margin-top: 310px;
 }
 .rail17{
-    height: 170px;
-    margin-left: 278px;
-    margin-top: 600px;
+    height: 100px;
+    margin-left: 244px;
+    margin-top: 535px;
     transform: rotate(90deg);
 }
 
@@ -137,7 +137,7 @@ body{
     margin-left: 200px;
 }
 .turn4{
-    margin-top: 639px;
+    margin-top: 539px;
     margin-left: 149px;
 }
 .switchs{
@@ -195,7 +195,7 @@ body{
 }
 .station4{
     position: absolute;
-    top:475px;
+    top:400px;
     left:355px;
 }
 
@@ -212,8 +212,8 @@ body{
 
 .station7{
     position: absolute;
-    top:655px;
-    left:355px;
+    top:555px;
+    left:295px;
 }
 .start{
     position: absolute;

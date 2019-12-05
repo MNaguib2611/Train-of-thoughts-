@@ -34,10 +34,10 @@
         <img src="./img/turn.png" class="turns turn4">
         <img src="./img/switch3.png" class="switchs switch1" onclick="switchFunc(0,1,3)">
         <img src="./img/switch4.png" class="switchs switch2" onclick="switchFunc(1,5,4)">
-        <img src="./img/switch5.png" class="switchs switch3">
-        <img src="./img/switch5.png" class="switchs switch4">
-        <img src="./img/switch5.png" class="switchs switch5">
-        <img src="./img/switch5.png" class="switchs switch6">
+        <img src="./img/switch4.png" class="switchs switch3" onclick="switchFunc(2,5,4)">
+        <img src="./img/switch4.png" class="switchs switch4" onclick="switchFunc(3,5,4)">
+        <img src="./img/switch4.png" class="switchs switch5" onclick="switchFunc(4,5,4)">
+        <img src="./img/switch4.png" class="switchs switch6" onclick="switchFunc(5,5,4)">
 
 
         <img src="./img/dummyStation.png" class="station station1">
@@ -59,11 +59,9 @@
 
     <div id="logIn">
         <h1>Train of Thought</h1>
-        <input id="PlayerName" type="text" value="Player Name" placeholder="Please enter your name"/><br>
-        <input id="PlayerPassword" type="password" value="Password" placeholder="Please enter your password"/><br>
-        <input id="logInButton" type="button" value="Log In"/><br>
-
-        
+        <input id="PlayerName" type="text"  placeholder="Please enter your name"/><br>
+        <button id="logInButton" class="btn-success btn-lg m-2" >Play</button>
+        <!-- <input  class="btn-danger" type="button" value=""/><br> -->
     </div>
 
     <script src="js/objects/point.js"></script>

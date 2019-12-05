@@ -101,12 +101,9 @@ body{
     margin-top: 50px;;
 }
 .rail2{
-    height: 47px;
+    height: 70px;
     margin-left: 100px;
-    margin-top: 270px;
-    /* position: absolute;
-     left:100px;
-     top: 270px; */
+    margin-top: 260px;
     transform: rotate(90deg);
 }
 .rail3{
@@ -120,6 +117,13 @@ body{
     margin-left: 150px;
     margin-top: 319px;
 }
+.rail5{
+    height: 100px;
+    margin-left: 244px;
+    margin-top: 535px;
+    transform: rotate(90deg);
+}
+
 .rail6{
     height: 90px;
     margin-left: 200px;
@@ -189,12 +193,6 @@ body{
     margin-left: 660px;
     margin-top: 310px;
 }
-.rail17{
-    height: 100px;
-    margin-left: 244px;
-    margin-top: 535px;
-    transform: rotate(90deg);
-}
 
 
 
@@ -230,7 +228,7 @@ body{
 }
 .switch2{
     margin-top: 270px;
-    margin-left: 138px;
+    margin-left: 158px;
 }
 .switch3{
     margin-top: 20px;
@@ -256,6 +254,7 @@ body{
     position: absolute;
     width: 60px;
     height: 60px;
+    z-index: 10000;
 }
 .station1{
     position: absolute;
@@ -269,13 +268,13 @@ body{
 }
 .station3{
     position: absolute;
-    top:20px;
-    left:1140px;
+    top:17px;
+    left:1130px;
 }
 .station4{
     position: absolute;
-    top:400px;
-    left:355px;
+    top:380px;
+    left:350px;
 }
 
 .station5{
@@ -285,8 +284,8 @@ body{
 }
 .station6{
     position: absolute;
-    top:265px;
-    left:1000px;
+    top:260px;
+    left:990px;
 }
 
 .station7{

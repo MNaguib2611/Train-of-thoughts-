@@ -1,0 +1,82 @@
+#mainMenu, #logIn{
+    margin-top: 15%;
+    display: inline-block;
+    border: 2px solid black;
+    background-color: rgba(55, 0, 255, 0.212);
+    width: 350px;
+    border-radius: 30px;
+}
+#howToPlay , #credits, #difficulty, #character{
+    margin-top: 10%;
+    font-size: 25px;
+    font-family: fantasy;
+    display: inline-block;
+    border: 2px solid black;
+    background-color: red;
+    background-color: rgba(55, 0, 255, 0.212);
+    size: 350px;
+    border-radius: 30px;
+}
+#howToPlay{
+    margin-top: 20%;
+}
+}
+#difficulty{
+    margin-top: 15%;
+    display: inline;
+}
+#difficulty input{
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+#mainMenu input{
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+#logIn input{
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+.block{
+    height: 400px;
+    width: 300px;
+    color: white;
+    text-align: center;
+    padding-top: 25px;
+    display: inline-block;
+}
+#character img{
+    width: 150px;
+    height: 200px;
+    display: inline;
+    margin: 10px;
+    /* margin-top: 30px; */
+}
+#character img:hover{
+    opacity: 86%;
+}
+#mainCanvas{
+    display: none;
+}
+.game_screen{
+    background-image : url("../img/backbround.jpg");
+    width: 500px;
+    height: 600px;
+    margin: auto;
+    margin-top: 2% ;
+    text-align: left;
+}
+body{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-image: url("../img/bg3.png");
+    background-position: center,center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+

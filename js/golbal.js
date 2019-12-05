@@ -14,8 +14,7 @@ for(i=0;i<2;i++){
     switchs[i]=new Switch();
     switchs[i].imgObj=document.getElementsByClassName("switch"+(i+1))[0];
 }
-switchs[0].imgObj.addEventListener("click",f1);
-switchs[1].imgObj.addEventListener("click",f2);
+
 
 switchs[0].nextId=2;
 switchs[0].firstNextId=4;//turn
@@ -52,44 +51,24 @@ rails[5].nextType=3;
 rails[5].direction=0;
 
 
-//rails[1].imgObj.style.display = "none";
-function f1(){
-if(switchs[0].state==0){
-    switchs[0].imgObj.src="./img/switch1.png";
-}
-else{
-    switchs[0].imgObj.src="./img/switch3.png";
-}
-//swap
-var temp= switchs[0].firstNextId;
-switchs[0].firstNextId=switchs[0].nextId;
-switchs[0].nextId=temp;
-temp= switchs[0].firstNextType;
-switchs[0].firstNextType=switchs[0].nextType;
-switchs[0].nextType=temp;
-/////
-switchs[0].state=!switchs[0].state;
-//switch1State = !switch1State;
-}
-
-function f2(){
-if(switchs[1].state==0){
-    switchs[1].imgObj.src="./img/switch5.png";
-}
-else{
-    switchs[1].imgObj.src="./img/switch4.png";
-}
-//swap
-var temp= switchs[1].firstNextId;
-switchs[1].firstNextId=switchs[1].nextId;
-switchs[1].nextId=temp;
-temp= switchs[1].firstNextType;
-switchs[1].firstNextType=switchs[1].nextType;
-switchs[1].nextType=temp;
-/////
-switchs[1].state=!switchs[1].state;
-//switch2State = !switch2State;
-}
+function switchFunc(id,pic1,pic2){
+    if(switchs[id].state==0){
+        switchs[id].imgObj.src="./img/switch"+pic1+".png";
+    }
+    else{
+        switchs[id].imgObj.src="./img/switch"+pic2+".png";
+    }
+    //swap
+    var temp= switchs[id].firstNextId;
+    switchs[id].firstNextId=switchs[id].nextId;
+    switchs[id].nextId=temp;
+    temp= switchs[id].firstNextType;
+    switchs[id].firstNextType=switchs[id].nextType;
+    switchs[id].nextType=temp;
+    /////
+    switchs[id].state=!switchs[id].state;
+    //switch1State = !switch1State;
+    }
 
 var trainIntervalId=setInterval(tainMove,20);
 train1.direction=1;

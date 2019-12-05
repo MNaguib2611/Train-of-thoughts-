@@ -1,0 +1,26 @@
+.bg{
+    background-size: cover;
+}
+div{
+    width: 20%;
+    color: blanchedalmond;
+    background-color: blue;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    height: 220px;
+    border-radius: 15px;
+}
+.button{
+    background-color: #f44336;
+    color: cornsilk;
+    display: block;
+    position: relative;
+    left: 28%;
+    margin-top: 5%;
+    padding: 10px 40px;
+    border-radius: 20px;
+}
+.button:hover{
+    opacity: 60%;
+}

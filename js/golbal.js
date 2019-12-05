@@ -4,7 +4,7 @@ var switchs=new Array();
 
 function GameInitializer(){
     train1.imgObj=document.getElementById("train1");
-for(i=0;i<=6;i++){
+for(i=0;i<=21;i++){
 rails[i]=new Rail();
 rails[i].imgObj=document.getElementsByClassName("rail"+(i+1))[0];
 }
@@ -13,43 +13,109 @@ for(i=0;i<6;i++){
     switchs[i].imgObj=document.getElementsByClassName("switch"+(i+1))[0];
 }
 
+
+
 switchs[0].nextId=2;
 switchs[0].firstNextId=4;//turn
 switchs[0].firstNextType=2;
 switchs[0].direction=1;
 
 
-switchs[1].nextId=3;
-switchs[1].firstNextId=1;
-switchs[1].direction=0;
 
 rails[0].nextId=0;
 rails[0].nextType=1;
 rails[0].direction=1;
 
-rails[1].nextId=1;
-rails[1].nextType=3;
-rails[1].direction=0;
+// switchs[1].nextId=3;
+// switchs[1].firstNextId=11;
+// switchs[1].direction=0;
 
-rails[2].nextId=3;
-rails[2].nextType=1;
-rails[2].direction=0;
+// switchs[2].nextId=8;
+// switchs[2].firstNextId=7;
+// switchs[2].direction=0;
 
-rails[3].nextId=3;
-rails[3].nextType=3;
-rails[3].direction=1;
 
-rails[4].nextId=1;
-rails[4].nextType=1;
-rails[4].direction=1;
-console.log(rails[4]);
-rails[5].nextId=2;
-rails[5].nextType=3;
-rails[5].direction=1;
 
-rails[6].nextId=2;
-rails[6].nextType=3;
-rails[6].direction=0;
+// rails[1].nextId=1;
+// rails[1].nextType=1;
+// rails[1].direction=0;
+
+// rails[2].nextId=19;
+// rails[2].nextType=2;//turn
+// rails[2].direction=0;
+
+// rails[19].nextId=5;
+// rails[19].nextType=0;//turn
+// rails[19].direction=0;
+
+// rails[3].nextId=20;
+// rails[3].nextType=2;
+// rails[3].direction=1;
+
+// rails[4].nextId=1;
+// rails[4].nextType=0;
+// rails[4].direction=1;
+// //console.log(rails[4]);
+
+// rails[5].nextId=20;
+// rails[5].nextType=2;//turn
+// rails[5].direction=2;
+
+// rails[20].nextId=   6;
+// rails[20].nextType=0;
+// rails[20].direction=2;
+
+
+// rails[21].nextId=16;
+// rails[21].nextType=0;
+// rails[21].direction=1;
+
+
+// rails[6].nextId=2;
+// rails[6].nextType=1;
+// rails[6].direction=0;
+
+// rails[7].nextId=2;
+// rails[7].nextType=3;
+// rails[7].direction=0;
+
+// rails[8].nextId=0;
+// rails[8].nextType=3;
+// rails[8].direction=1;
+
+
+// rails[9].nextId=2;
+// rails[9].nextType=3;
+// rails[9].direction=0;
+
+
+// rails[10].nextId=2;
+// rails[10].nextType=3;
+// rails[10].direction=0;
+
+// rails[11].nextId=2;
+// rails[11].nextType=3;
+// rails[11].direction=0;
+
+// rails[12].nextId=2;
+// rails[12].nextType=3;
+// rails[12].direction=0;
+
+// rails[13].nextId=2;
+// rails[13].nextType=3;
+// rails[13].direction=0;
+
+// rails[14].nextId=2;
+// rails[14].nextType=3;
+// rails[14].direction=0;
+
+// rails[15].nextId=2;
+// rails[15].nextType=3;
+// rails[15].direction=0;
+
+// rails[16].nextId=6;
+// rails[16].nextType=3;
+// rails[16].direction=0;
 
 train1.direction=1;
 train1.imgObj.style["margin-top"]="22px";

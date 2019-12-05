@@ -101,10 +101,12 @@ body{
     margin-top: 50px;;
 }
 .rail2{
-    height: 50px;
-    position: absolute;
+    height: 47px;
+    margin-left: 100px;
+    margin-top: 270px;
+    /* position: absolute;
      left:100px;
-     top: 270px;
+     top: 270px; */
     transform: rotate(90deg);
 }
 .rail3{

@@ -319,3 +319,32 @@ body{
 }
    
 
+#player-info{
+    position: absolute;
+        bottom: 25px;
+        right: 25px;
+        /* width:350px; */
+        height: 150px;
+        border: 1 solid gray;
+        box-shadow: 0px 0px 20px  yellowgreen;
+        opacity: .5;
+        font-family: 'Times New Roman', Times, serif;
+        color: white;
+}
+#player-info:hover{
+    opacity: 1;
+}
+#characterDiv{
+    text-align: center;
+    padding: 15px;
+    height: 150px;
+}
+#characterDiv img{
+    margin-bottom:20px;
+}
+
+#scoreDiv{
+    text-align: center;
+    padding: 35px;
+    height: 150px;
+}

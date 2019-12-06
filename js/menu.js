@@ -21,7 +21,7 @@ function logIn()
 
 
     var mainMenuWindow = document.createElement("div");
-    mainMenuWindow.innerHTML = "<h1>Train of Thought</h1><input  id=\"StartButton\" type=\"button\" value=\"Start\"/><br><input id=\"characterButton\" type=\"button\" value=\"Choose Your Character\"/><br><input id=\"DifficultyButton\" type=\"button\" value=\"Difficulty\"/><br><input id=\"HowToPlayButton\" type=\"button\" value=\"How To Play\"/><br><input id=\"CreditsButton\" type=\"button\" value=\"Credits\"/>"
+    mainMenuWindow.innerHTML =  '<h1>Train of Thought</h1><button id="StartButton" class="btn-info btn-lg m-2" >Start</button><br><button id="characterButton" class="btn-info btn-lg m-2" >Choose Character</button><br><button id="DifficultyButton" class="btn-info btn-lg m-2" >Difficulty</button><br><button id="HowToPlayButton" class="btn-info btn-lg m-2" >How To Play</button><br><button id="CreditsButton" class="btn-info btn-lg m-2" >Credits</button>';
     mainMenuWindow.id = "mainMenu";
     document.body.appendChild(mainMenuWindow);
     
@@ -32,7 +32,7 @@ function startGame () {
     document.body.removeChild(mainMenuWindow);
     document.getElementsByClassName("game_screen")[0].style.display="block";
     GameInitializer();
-    var trainIntervalId=setInterval(tainMove,20);
+    var trainIntervalId=setInterval(tainMove,10);
 }
 var howToPlayButton = document.getElementById("HowToPlayButton");
 howToPlayButton.onclick = howToPlay;
@@ -112,7 +112,7 @@ function difficulty () {
     document.getElementById("mainMenu").style.display = "none";
     difficultyWindow = document.createElement("div");
     difficultyWindow.id = "difficulty";
-    difficultyWindow.innerHTML = "<h3>Difficulty</h3><input id=\"EasyButton\" type=\"button\" value=\"Easy\"/><br><input id=\"MediumButton\" type=\"button\" value=\"Medium\"/><br><input id=\"HardButton\" type=\"button\" value=\"Hard\"/><br>"
+    difficultyWindow.innerHTML = "<h3>Difficulty </h3><button class=\"btn-primary btn-lg m-2\" id=\"EasyButton\" > Easy </button><br><button class=\"btn-warning btn-lg m-2\" id=\"MediumButton\" >Medium</button><br><button class=\"btn-danger btn-lg m-2\" id=\"HardButton\" >Hard</button><br>"
     difficultyWindow.style.color = "white";
     difficultyWindow.style.width = "300px";
     var close = document.createElement("button");

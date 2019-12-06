@@ -314,7 +314,9 @@ body{
     width: 20px;
     height: 30px;
     margin-top: 22px;
+    margin-bottom: 20px;
     margin-left: 35px;
+    margin-right: 20px;
     z-index: 5;
 }
    

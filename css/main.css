@@ -348,3 +348,6 @@ body{
     padding: 35px;
     height: 150px;
 }
+.red-placeholder::-webkit-input-placeholder {
+    color: red;
+ }

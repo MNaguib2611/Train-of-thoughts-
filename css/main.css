@@ -25,6 +25,7 @@
     background-color: rgba(55, 0, 255, 0.212);
     size: 350px;
     border-radius: 30px;
+    padding: 5px 20px;
 }
 #howToPlay{
     margin-top: 20%;
@@ -68,6 +69,15 @@
 }
 #character img:hover{
     opacity: 86%;
+}
+ul{
+    padding: 5px;
+}
+li{
+    list-style-type: none;
+}
+h1{
+    color: wheat;
 }
 
 .game_screen{

@@ -120,6 +120,12 @@ body{
     margin-left: 150px;
     margin-top: 319px;
 }
+.rail5{
+    height: 100px;
+    margin-left: 244px;
+    margin-top: 535px;
+    transform: rotate(90deg);
+}
 .rail6{
     height: 90px;
     margin-left: 200px;
@@ -189,12 +195,7 @@ body{
     margin-left: 660px;
     margin-top: 310px;
 }
-.rail17{
-    height: 100px;
-    margin-left: 244px;
-    margin-top: 535px;
-    transform: rotate(90deg);
-}
+
 
 
 

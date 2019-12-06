@@ -1,9 +1,9 @@
 var players = [];
 var logInButton = document.getElementById("logInButton");
 logInButton.onclick = logIn;
-
+var user = document.getElementById("user");
 function addPlayers (){
-     let player ={
+     var player ={
          id : Date.now(),
          Name : document.getElementById("PlayerName").value}
     players.push(player);
@@ -11,11 +11,15 @@ function addPlayers (){
      player = JSON.parse(localStorage.getItem('players'));
       }
 logInButton.addEventListener('click',addPlayers);
-
+function displayPlayerName  (){
+    user.textContent = document.getElementById("PlayerName").value;
+}
 function logIn()
 { 
     var logInWidow = document.getElementById("logIn");
     addPlayers();
+    displayPlayerName();
+
     // logInWidow.style.display = "none";
     document.body.removeChild(logInWidow);
 

@@ -1,14 +1,30 @@
+var players = [];
 var logInButton = document.getElementById("logInButton");
 logInButton.onclick = logIn;
+
+function addPlayers (){
+     let player ={
+         id : Date.now(),
+         Name : document.getElementById("PlayerName").value}
+    players.push(player);
+     localStorage.setItem('PlayerName', JSON.stringify(player));
+     player = JSON.parse(localStorage.getItem('players'));
+      }
+logInButton.addEventListener('click',addPlayers);
+
 function logIn()
-{
+{ 
     var logInWidow = document.getElementById("logIn");
+    addPlayers();
     // logInWidow.style.display = "none";
     document.body.removeChild(logInWidow);
+
+
     var mainMenuWindow = document.createElement("div");
     mainMenuWindow.innerHTML = "<h1>Train of Thought</h1><input  id=\"StartButton\" type=\"button\" value=\"Start\"/><br><input id=\"characterButton\" type=\"button\" value=\"Choose Your Character\"/><br><input id=\"DifficultyButton\" type=\"button\" value=\"Difficulty\"/><br><input id=\"HowToPlayButton\" type=\"button\" value=\"How To Play\"/><br><input id=\"CreditsButton\" type=\"button\" value=\"Credits\"/>"
     mainMenuWindow.id = "mainMenu";
     document.body.appendChild(mainMenuWindow);
+    
     var startButton = document.getElementById("StartButton");
 startButton.onclick = startGame;
 function startGame () {

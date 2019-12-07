@@ -1,4 +1,4 @@
-var train1=new Train();
+var trains=new Array();
 var rails=new Array();
 var switchs=new Array();
 function trainHorn(){
@@ -12,7 +12,7 @@ function scoreSound(){
 //function GameInitializer(){
    // trainHorn();
 var trainCharacter = 1;
-var trainIntervalId;
+var trainIntervalId=new Array();
 var speed=30;
 
 function switchCharacter1(){
@@ -33,12 +33,9 @@ function setdifficulty(difficulty){
 
 function GameInitializer(){
     trainHorn();
-    trainIntervalId=setInterval(tainMove,speed);
-    train1.kind=4;
-    train1.imgObj=document.getElementById("train1");
-    train1.imgObj.src="./img/train_"+trainCharacter+".png";
+    
     // to dinamically changing character image with the user chosen character
-    document.getElementById("characterImg").src = "./img/trainSide_"+trainCharacter+".png";
+    document.getElementById("characterImg").src = "./img/trainSide_"+trainCharacter+"_4.png";
     document.getElementById("characterImg").style.width = "80px";
     document.getElementById("characterImg").style.height = "70px";
 for(i=0;i<=21;i++){
@@ -175,14 +172,26 @@ switchs[5].state=1;
 
 
 
-
-train1.direction=1;
-train1.imgObj.style["margin-top"]="22px";
-train1.imgObj.style["margin-left"]="35px";
-train1.railId=0;
-train1.railType=0;
-train1.limit=new Point(rails[train1.railId].imgObj.height,0);
-
+    for(i=0;i<50;i++){
+        trains[i]=new Train();
+        trains[i].imgObj =document.createElement("img");
+        trains[i].imgObj.classList.add("train");
+        trains[i].imgObj.id="train"+i; 
+        document.getElementsByClassName("game_screen")[0].appendChild(trains[i].imgObj);
+        trains[i].imgObj=document.getElementById("train"+(i));
+        trains[i].kind=Math.floor(Math.random() * 7)+1;
+        //trains[i].kind=4;
+        trains[i].imgObj.src="./img/train_"+trainCharacter+"_"+trains[i].kind+".png";
+        trains[i].direction=1;
+        trains[i].imgObj.style["margin-top"]="22px";
+        trains[i].imgObj.style["margin-left"]="35px";
+        trains[i].railId=0;
+        trains[i].railType=0;
+        trains[i].limit=new Point(rails[trains[i].railId].imgObj.height,0);
+    }
+    for(let j=0;j<50;j++){
+    setTimeout(function(){trainIntervalId[j]=setInterval(function() { tainMove(j); },speed)},((10000/(30/speed)))*j);
+}
 }
 //var switch1=document.getElementsByClassName("switch1")[0];
 //var switch2=document.getElementsByClassName("switch2")[0];
@@ -210,118 +219,204 @@ function switchFunc(id,pic1,pic2){
     }
 
 
-function tainMove(){
-    if(train1.direction==1){
-        if(train1.limit.x > 0){
-            var old  =train1.imgObj.style["margin-top"];
-            var newp=old.replace("px","");
-            newp++;
-            train1.limit.x--;
-            train1.imgObj.style["margin-top"]=newp+"px";
-        }else{
-            //switching in x
-            switch(train1.railType){ 
-                case 0:
-                case 2:
-                        train1.railType=rails[train1.railId].nextType;        
-                        train1.railId=rails[train1.railId].nextId;
-                        
-                break;
-                case 1:
-                    train1.railType=switchs[train1.railId].nextType;
-                    train1.railId=switchs[train1.railId].nextId;
-                        
-                break;
-                case 3: 
-                    //alert("done1");
-                break;
-            }
-//debugger
-            switch(train1.railType){
-                case 0:
-                        if(rails[train1.railId].direction==1||rails[train1.railId].direction==2){
-                            //alert(train1.limit.x=rails[train1.railId].imgObj.height);
-                            train1.limit.x+=rails[train1.railId].imgObj.height;
-                            train1.direction=rails[train1.railId].direction;
-                            if(rails[train1.railId].direction==1){
-                                train1.imgObj.src="./img/train_"+trainCharacter+".png";
+    function tainMove(index){
+        if(trains[index].direction==1){
+            if(trains[index].limit.x > 0){
+                var old  =trains[index].imgObj.style["margin-top"];
+                var newp=old.replace("px","");
+                newp++;
+                trains[index].limit.x--;
+                trains[index].imgObj.style["margin-top"]=newp+"px";
+            }else{
+                //switching in x
+                switch(trains[index].railType){ 
+                    case 0:
+                    case 2:
+                            trains[index].railType=rails[trains[index].railId].nextType;        
+                            trains[index].railId=rails[trains[index].railId].nextId;
+                            
+                    break;
+                    case 1:
+                        trains[index].railType=switchs[trains[index].railId].nextType;
+                        trains[index].railId=switchs[trains[index].railId].nextId;
+                            
+                    break;
+                    case 3: 
+                        //alert("done1");
+                    break;
+                }
+    
+                switch(trains[index].railType){
+                    case 0:
+                            if(rails[trains[index].railId].direction==1||rails[trains[index].railId].direction==2){
+                                //alert(trains[index].limit.x=rails[trains[index].railId].imgObj.height);
+                                trains[index].limit.x+=rails[trains[index].railId].imgObj.height;
+                                trains[index].direction=rails[trains[index].railId].direction;
+                                if(rails[trains[index].railId].direction==1){
+                                    trains[index].imgObj.src="./img/train_"+trainCharacter+"_"+trains[index].kind+".png";
+                                }
+                                else{
+                                    trains[index].imgObj.src="./img/trainUp_"+trainCharacter+"_"+trains[index].kind+".png"
+                                }
                             }
                             else{
-                                train1.imgObj.src="./img/trainUp_"+trainCharacter+".png"
+                                trains[index].limit.y+=rails[trains[index].railId].imgObj.height;
+                                trains[index].direction=0;
+                                trains[index].imgObj.src="./img/trainSide_"+trainCharacter+"_"+trains[index].kind+".png";
                             }
-                        }
-                        else{
-                            train1.limit.y+=rails[train1.railId].imgObj.height;
-                            train1.direction=0;
-                            train1.imgObj.src="./img/trainSide_"+trainCharacter+".png";
-                        }
-                break;
-                case 1:
-                        if(!switchs[train1.railId].state){
-                            train1.limit.x+=25;
-                            train1.limit.y+=25;
-                        }
-                        else{
-                            if(switchs[train1.railId].direction==1||switchs[train1.railId].direction==2){
-                            train1.limit.x+=50;
-                        }else if(switchs[train1.railId].direction==0){
-                            train1.limit.y+=50;
-                        }
-                        }
-                        train1.direction=switchs[train1.railId].direction;
-                        if(train1.direction==1){
-                            train1.imgObj.src="./img/train_"+trainCharacter+".png";
-                        }else if(train1.direction==0){
-                            train1.imgObj.src="./img/trainSide_"+trainCharacter+".png";
-                        }else if(train1.direction==2){
-                            train1.imgObj.src="./img/train_"+trainCharacter+".png";
-                        }
-                break;
-                case 2:
-                        //alert("hello");
-                        train1.limit.x+=45;
-                        train1.limit.y+=45;
-                        //debugger    
-                        train1.direction=rails[train1.railId].direction;
-                        if(train1.direction==1){
-                            train1.imgObj.src="./img/train_"+trainCharacter+".png";
-                        }else if(train1.direction==0){
-                            train1.imgObj.src="./img/trainSide_"+trainCharacter+".png";
-                        }else if(train1.direction==2){
-                            train1.imgObj.src="./img/trainUp_"+trainCharacter+".png";
-                        }
-                break;
-                case 3:
-                        if(train1.kind==train1.railId){
-                            document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)+1;
+                    break;
+                    case 1:
+                            if(!switchs[trains[index].railId].state){
+                                trains[index].limit.x+=25;
+                                trains[index].limit.y+=25;
                             }
-                        
-                        clearInterval(trainIntervalId);
-                        scoreSound();
-                        //alert("done2");
-                break;
+                            else{
+                                if(switchs[trains[index].railId].direction==1||switchs[trains[index].railId].direction==2){
+                                trains[index].limit.x+=50;
+                            }else if(switchs[trains[index].railId].direction==0){
+                                trains[index].limit.y+=50;
+                            }
+                            }
+                            trains[index].direction=switchs[trains[index].railId].direction;
+                            if(trains[index].direction==1){
+                                trains[index].imgObj.src="./img/train_"+trainCharacter+"_"+trains[index].kind+".png";
+                            }else if(trains[index].direction==0){
+                                trains[index].imgObj.src="./img/trainSide_"+trainCharacter+"_"+trains[index].kind+".png";
+                            }else if(trains[index].direction==2){
+                                trains[index].imgObj.src="./img/train_"+trainCharacter+"_"+trains[index].kind+".png";
+                            }
+                    break;
+                    case 2:
+                            //alert("hello");
+                            trains[index].limit.x+=45;
+                            trains[index].limit.y+=45;
+                            //debugger    
+                            trains[index].direction=rails[trains[index].railId].direction;
+                            if(trains[index].direction==1){
+                                trains[index].imgObj.src="./img/train_"+trainCharacter+"_"+trains[index].kind+".png";
+                            }else if(trains[index].direction==0){
+                                trains[index].imgObj.src="./img/trainSide_"+trainCharacter+"_"+trains[index].kind+".png";
+                            }else if(trains[index].direction==2){
+                                trains[index].imgObj.src="./img/trainUp_"+trainCharacter+"_"+trains[index].kind+".png";
+                            }
+                    break;
+                    case 3:
+                            if(trains[index].kind==trains[index].railId+1){
+                                document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)+1;
+                                }
+                            
+                            clearInterval(trainIntervalId[index]);
+                            scoreSound();
+                            //alert("done2");
+                    break;
+                }
             }
-        }
-    }else if(train1.direction==0){
-        if(train1.limit.y > 0){
-            //alert(train1.limit.y );
-            var old  =train1.imgObj.style["margin-left"];
+        }else if(trains[index].direction==0){
+            if(trains[index].limit.y > 0){
+                //alert(trains[index].limit.y );
+                var old  =trains[index].imgObj.style["margin-left"];
+                var newp=old.replace("px","");
+                newp++;
+                trains[index].limit.y--;
+                trains[index].imgObj.style["margin-left"]=newp+"px";
+            }else{
+                //switching in y
+                switch(trains[index].railType){ 
+                    case 0:
+                    case 2:
+                        trains[index].railType=rails[trains[index].railId].nextType;
+                        trains[index].railId=rails[trains[index].railId].nextId;
+                        
+                    break;
+                    case 1:
+                            trains[index].railType=switchs[trains[index].railId].nextType;
+                            trains[index].railId=switchs[trains[index].railId].nextId;
+                            
+                    break;
+                    case 3:
+                           //alert("done3");
+                    break;
+                }
+                
+                switch(trains[index].railType){
+                    case 0:
+                            if(rails[trains[index].railId].direction==1||rails[trains[index].railId].direction==2){
+                                trains[index].limit.x+=rails[trains[index].railId].imgObj.height;
+                                trains[index].direction=rails[trains[index].railId].direction;
+                                if(rails[trains[index].railId].direction==1){
+                                    trains[index].imgObj.src="./img/train_"+trainCharacter+"_"+trains[index].kind+".png";
+                                }
+                                else{
+                                    trains[index].imgObj.src="./img/trainUp_"+trainCharacter+"_"+trains[index].kind+".png"
+                                }
+                            }
+                            else{
+                                trains[index].limit.y+=rails[trains[index].railId].imgObj.height;
+                                trains[index].direction=0;
+                                trains[index].imgObj.src="./img/trainSide_"+trainCharacter+"_"+trains[index].kind+".png";
+                            }
+                    break;
+                    case 1:
+                            if(switchs[trains[index].railId].state){
+                                trains[index].limit.x+=25;
+                                trains[index].limit.y+=25;
+                            }
+                            else{
+                                if(switchs[trains[index].railId].direction==1||switchs[trains[index].railId].direction==2){
+                                    trains[index].limit.x+=50;
+                                }else if(switchs[trains[index].railId].direction==0){
+                                    trains[index].limit.y+=50;
+                                }
+                            }
+                            trains[index].direction=switchs[trains[index].railId].direction;
+                            if(trains[index].direction==1){
+                                trains[index].imgObj.src="./img/train_"+trainCharacter+"_"+trains[index].kind+".png";
+                            }else if(trains[index].direction==0){
+                                trains[index].imgObj.src="./img/trainSide_"+trainCharacter+"_"+trains[index].kind+".png";
+                            }else if(trains[index].direction==2){
+                                trains[index].imgObj.src="./img/trainUp_"+trainCharacter+"_"+trains[index].kind+".png";
+                            }
+                    break;
+                    case 2:
+                            trains[index].limit.x+=45;
+                            trains[index].limit.y+=45;
+                            trains[index].direction=rails[trains[index].railId].direction;
+                            if(trains[index].direction==1){
+                                trains[index].imgObj.src="./img/train_"+trainCharacter+"_"+trains[index].kind+".png";
+                            }else if(trains[index].direction==0){
+                                trains[index].imgObj.src="./img/trainSide_"+trainCharacter+"_"+trains[index].kind+".png";
+                            }else if(trains[index].direction==2){
+                                trains[index].imgObj.src="./img/trainUp_"+trainCharacter+"_"+trains[index].kind+".png";
+                            }
+                    break;
+                    case 3:
+                            if(trains[index].kind==trains[index].railId+1){
+                                document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)+1;
+                                }
+                            clearInterval(trainIntervalId[index]);
+                            //alert("done4");
+                    break;
+                }
+            }
+        }else if(trains[index].direction==2){
+        if(trains[index].limit.x > 0){
+            var old  =trains[index].imgObj.style["margin-top"];
             var newp=old.replace("px","");
-            newp++;
-            train1.limit.y--;
-            train1.imgObj.style["margin-left"]=newp+"px";
+            newp--;
+            trains[index].limit.x--;
+            trains[index].imgObj.style["margin-top"]=newp+"px";
         }else{
-            //switching in y
-            switch(train1.railType){ 
+            //switching in x
+            switch(trains[index].railType){ 
                 case 0:
                 case 2:
-                    train1.railType=rails[train1.railId].nextType;
-                    train1.railId=rails[train1.railId].nextId;
+                    trains[index].railType=rails[trains[index].railId].nextType;
+                    trains[index].railId=rails[trains[index].railId].nextId;
                     
                 break;
                 case 1:
-                        train1.railType=switchs[train1.railId].nextType;
-                        train1.railId=switchs[train1.railId].nextId;
+                        trains[index].railType=switchs[trains[index].railId].nextType;
+                        trains[index].railId=switchs[trains[index].railId].nextId;
                         
                 break;
                 case 3:
@@ -329,151 +424,66 @@ function tainMove(){
                 break;
             }
             
-            switch(train1.railType){
+            switch(trains[index].railType){
                 case 0:
-                        if(rails[train1.railId].direction==1||rails[train1.railId].direction==2){
-                            train1.limit.x+=rails[train1.railId].imgObj.height;
-                            train1.direction=rails[train1.railId].direction;
-                            if(rails[train1.railId].direction==1){
-                                train1.imgObj.src="./img/train_"+trainCharacter+".png";
+                        if(rails[trains[index].railId].direction==1||rails[trains[index].railId].direction==2){
+                            trains[index].limit.x+=rails[trains[index].railId].imgObj.height;
+                            trains[index].direction=rails[trains[index].railId].direction;
+                            if(rails[trains[index].railId].direction==1){
+                                trains[index].imgObj.src="./img/train_"+trainCharacter+"_"+trains[index].kind+".png";
                             }
                             else{
-                                train1.imgObj.src="./img/trainUp_"+trainCharacter+".png"
+                                trains[index].imgObj.src="./img/trainUp_"+trainCharacter+"_"+trains[index].kind+".png"
                             }
                         }
                         else{
-                            train1.limit.y+=rails[train1.railId].imgObj.height;
-                            train1.direction=0;
-                            train1.imgObj.src="./img/trainSide_"+trainCharacter+".png";
+                            trains[index].limit.y+=rails[trains[index].railId].imgObj.height;
+                            trains[index].direction=0;
+                            trains[index].imgObj.src="./img/trainSide_"+trainCharacter+"_"+trains[index].kind+".png";
                         }
                 break;
                 case 1:
-                        if(switchs[train1.railId].state){
-                            train1.limit.x+=25;
-                            train1.limit.y+=25;
+                        if(switchs[trains[index].railId].state){
+                            trains[index].limit.x+=25;
+                            trains[index].limit.y+=25;
                         }
                         else{
-                            if(switchs[train1.railId].direction==1||switchs[train1.railId].direction==2){
-                                train1.limit.x+=50;
-                            }else if(switchs[train1.railId].direction==0){
-                                train1.limit.y+=50;
+                            if(switchs[trains[index].railId].direction==1||switchs[trains[index].railId].direction==2){
+                                trains[index].limit.x+=50;
+                            }else if(switchs[trains[index].railId].direction==0){
+                                trains[index].limit.y+=50;
                             }
                         }
-                        train1.direction=switchs[train1.railId].direction;
-                        if(train1.direction==1){
-                            train1.imgObj.src="./img/train_"+trainCharacter+".png";
-                        }else if(train1.direction==0){
-                            train1.imgObj.src="./img/trainSide_"+trainCharacter+".png";
-                        }else if(train1.direction==2){
-                            train1.imgObj.src="./img/trainUp_"+trainCharacter+".png";
+                        trains[index].direction=switchs[trains[index].railId].direction;
+                        if(trains[index].direction==1){
+                            trains[index].imgObj.src="./img/train_"+trainCharacter+"_"+trains[index].kind+".png";
+                        }else if(trains[index].direction==0){
+                            trains[index].imgObj.src="./img/trainSide_"+trainCharacter+"_"+trains[index].kind+".png";
+                        }else if(trains[index].direction==2){
+                            trains[index].imgObj.src="./img/trainUp_"+trainCharacter+"_"+trains[index].kind+".png";
                         }
                 break;
                 case 2:
-                        train1.limit.x+=45;
-                        train1.limit.y+=45;
-                        train1.direction=rails[train1.railId].direction;
-                        if(train1.direction==1){
-                            train1.imgObj.src="./img/train_"+trainCharacter+".png";
-                        }else if(train1.direction==0){
-                            train1.imgObj.src="./img/trainSide_"+trainCharacter+".png";
-                        }else if(train1.direction==2){
-                            train1.imgObj.src="./img/trainUp_"+trainCharacter+".png";
+                        trains[index].limit.x+=45;
+                        trains[index].limit.y+=45;
+                        trains[index].direction=rails[trains[index].railId].direction;
+                        if(trains[index].direction==1){
+                            trains[index].imgObj.src="./img/train_"+trainCharacter+"_"+trains[index].kind+".png";
+                        }else if(trains[index].direction==0){
+                            trains[index].imgObj.src="./img/trainSide_"+trainCharacter+"_"+trains[index].kind+".png";
+                        }else if(trains[index].direction==2){
+                            trains[index].imgObj.src="./img/trainUp_"+trainCharacter+"_"+trains[index].kind+".png";
                         }
                 break;
                 case 3:
-                        if(train1.kind==train1.railId){
+                        if(trains[index].kind==trains[index].railId+1){
                             document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)+1;
                             }
-                        clearInterval(trainIntervalId);
+                        clearInterval(trainIntervalId[index]);
                         //alert("done4");
                 break;
             }
         }
-    }else if(train1.direction==2){
-    if(train1.limit.x > 0){
-        var old  =train1.imgObj.style["margin-top"];
-        var newp=old.replace("px","");
-        newp--;
-        train1.limit.x--;
-        train1.imgObj.style["margin-top"]=newp+"px";
-    }else{
-        //switching in x
-        switch(train1.railType){ 
-            case 0:
-            case 2:
-                train1.railType=rails[train1.railId].nextType;
-                train1.railId=rails[train1.railId].nextId;
-                
-            break;
-            case 1:
-                    train1.railType=switchs[train1.railId].nextType;
-                    train1.railId=switchs[train1.railId].nextId;
-                    
-            break;
-            case 3:
-                   //alert("done3");
-            break;
-        }
-        
-        switch(train1.railType){
-            case 0:
-                    if(rails[train1.railId].direction==1||rails[train1.railId].direction==2){
-                        train1.limit.x+=rails[train1.railId].imgObj.height;
-                        train1.direction=rails[train1.railId].direction;
-                        if(rails[train1.railId].direction==1){
-                            train1.imgObj.src="./img/train_"+trainCharacter+".png";
-                        }
-                        else{
-                            train1.imgObj.src="./img/trainUp_"+trainCharacter+".png"
-                        }
-                    }
-                    else{
-                        train1.limit.y+=rails[train1.railId].imgObj.height;
-                        train1.direction=0;
-                        train1.imgObj.src="./img/trainSide_"+trainCharacter+".png";
-                    }
-            break;
-            case 1:
-                    if(switchs[train1.railId].state){
-                        train1.limit.x+=25;
-                        train1.limit.y+=25;
-                    }
-                    else{
-                        if(switchs[train1.railId].direction==1||switchs[train1.railId].direction==2){
-                            train1.limit.x+=50;
-                        }else if(switchs[train1.railId].direction==0){
-                            train1.limit.y+=50;
-                        }
-                    }
-                    train1.direction=switchs[train1.railId].direction;
-                    if(train1.direction==1){
-                        train1.imgObj.src="./img/train_"+trainCharacter+".png";
-                    }else if(train1.direction==0){
-                        train1.imgObj.src="./img/trainSide_"+trainCharacter+".png";
-                    }else if(train1.direction==2){
-                        train1.imgObj.src="./img/trainUp_"+trainCharacter+".png";
-                    }
-            break;
-            case 2:
-                    train1.limit.x+=45;
-                    train1.limit.y+=45;
-                    train1.direction=rails[train1.railId].direction;
-                    if(train1.direction==1){
-                        train1.imgObj.src="./img/train_"+trainCharacter+".png";
-                    }else if(train1.direction==0){
-                        train1.imgObj.src="./img/trainSide_"+trainCharacter+".png";
-                    }else if(train1.direction==2){
-                        train1.imgObj.src="./img/trainUp_"+trainCharacter+".png";
-                    }
-            break;
-            case 3:
-                    if(train1.kind==train1.railId){
-                        document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)+1;
-                        }
-                    clearInterval(trainIntervalId);
-                    //alert("done4");
-            break;
-        }
     }
-}
-}
+    }
+    

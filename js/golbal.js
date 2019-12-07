@@ -26,6 +26,9 @@ function GameInitializer(){
     train1.kind=4;
     train1.imgObj=document.getElementById("train1");
     train1.imgObj.src="./img/train_"+trainCharacter+".png";
+    // to dinamically changing character image with the user chosen character
+    document.getElementById("characterImg").src = "./img/trainSide_"+trainCharacter+".png";
+    document.getElementById("characterImg").style.width = "80px";
 for(i=0;i<=21;i++){
 rails[i]=new Rail();
 rails[i].imgObj=document.getElementsByClassName("rail"+(i+1))[0];

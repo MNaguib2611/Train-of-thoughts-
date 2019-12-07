@@ -78,7 +78,7 @@ function logIn()
         document.getElementById("mainMenu").style.display = "none";
         characterWindow = document.createElement("div");
         characterWindow.id = "character";
-        characterWindow.innerHTML = "<div class=\"block\"><h3>Electric Train</h3><br><img id=\"train1\" onclick='switchCharacter1()' src=\"img/backGround.jpg\"></div><div class=\"block\"><h3>Steam Train</h3><br><img id=\"train2\" onclick=\"switchCharacter2()\" src=\"img/bg2.jpg\"></div>"
+        characterWindow.innerHTML = "<div class=\"block\"><h3>Coal Train</h3><br><img id=\"train1\" onclick='switchCharacter1()' src=\"img/trainSide_1.png\"></div><div class=\"block\"><h3>Passenger Train</h3><br><img id=\"train2\" onclick=\"switchCharacter2()\" src=\"img/trainSide_2.png\"></div>"
         characterWindow.style.margin = "0,auto";
         var close = document.createElement("button");
         close.style.backgroundColor = "white";

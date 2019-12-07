@@ -46,7 +46,6 @@ function logIn()
         document.body.removeChild(mainMenuWindow);
         document.getElementsByClassName("game_screen")[0].style.display="block";
         GameInitializer();
-        var trainIntervalId=setInterval(tainMove,10);
     }
     var howToPlayButton = document.getElementById("HowToPlayButton");
     howToPlayButton.onclick = howToPlay;

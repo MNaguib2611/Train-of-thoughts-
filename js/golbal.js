@@ -2,6 +2,7 @@ var train1=new Train();
 var rails=new Array();
 var switchs=new Array();
 var trainCharacter = 1;
+var trainIntervalId;
 
 function switchCharacter1(){
     trainCharacter = 1;
@@ -15,6 +16,8 @@ function switchCharacter2(){
 }
 
 function GameInitializer(){
+    trainIntervalId=setInterval(tainMove,10);
+    train1.kind=4;
     train1.imgObj=document.getElementById("train1");
     train1.imgObj.src="./img/train_"+trainCharacter+".png";
 for(i=0;i<=21;i++){
@@ -43,6 +46,9 @@ rails[1].direction=0;
  rails[3].nextType=2;
  rails[3].direction=1;
 
+ rails[4].nextId=6;
+ rails[4].nextType=3;
+ rails[4].direction=0;
 
  rails[5].nextId=18;
  rails[5].nextType=2;
@@ -205,7 +211,7 @@ function tainMove(){
                     train1.railId=switchs[train1.railId].nextId;
                         
                 break;
-                case 3:
+                case 3: 
                     //alert("done1");
                 break;
             }
@@ -265,6 +271,11 @@ function tainMove(){
                         }
                 break;
                 case 3:
+                        if(train1.kind==train1.railId){
+                            document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)+1;
+                            }
+                        
+                        clearInterval(trainIntervalId);
                         //alert("done2");
                 break;
             }
@@ -348,6 +359,10 @@ function tainMove(){
                         }
                 break;
                 case 3:
+                        if(train1.kind==train1.railId){
+                            document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)+1;
+                            }
+                        clearInterval(trainIntervalId);
                         //alert("done4");
                 break;
             }
@@ -430,6 +445,10 @@ function tainMove(){
                     }
             break;
             case 3:
+                    if(train1.kind==train1.railId){
+                        document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)+1;
+                        }
+                    clearInterval(trainIntervalId);
                     //alert("done4");
             break;
         }

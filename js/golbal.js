@@ -36,6 +36,7 @@ function GameInitializer(){
     // to dinamically changing character image with the user chosen character
     document.getElementById("characterImg").src = "./img/trainSide_"+trainCharacter+".png";
     document.getElementById("characterImg").style.width = "80px";
+    document.getElementById("characterImg").style.height = "70px";
 for(i=0;i<=21;i++){
 rails[i]=new Rail();
 rails[i].imgObj=document.getElementsByClassName("rail"+(i+1))[0];

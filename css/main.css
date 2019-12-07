@@ -149,10 +149,10 @@ body{
 }
 
 .rail8{
-    height: 270px;
+    height: 260px;
     position: absolute;
      left:605px;
-     top: -90px;
+     top: -85px;
     transform: rotate(90deg);
 }
 .rail9{

@@ -5,8 +5,12 @@ function trainHorn(){
     var audio = new Audio ('./SoundEffects/train-pass-by-02.WAV');
     audio.play();
 }
+function scoreSound(){
+    var audio = new Audio ('./SoundEffects/Mario-coin-sound.MP3');
+    audio.play();
+}
 //function GameInitializer(){
-    trainHorn();
+   // trainHorn();
 var trainCharacter = 1;
 var trainIntervalId;
 var speed=30;
@@ -293,6 +297,7 @@ function tainMove(){
                             }
                         
                         clearInterval(trainIntervalId);
+                        scoreSound();
                         //alert("done2");
                 break;
             }

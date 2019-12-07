@@ -5,9 +5,13 @@ var trainCharacter = 1;
 
 function switchCharacter1(){
     trainCharacter = 1;
+    characterWindow.remove();
+    document.getElementById("mainMenu").style.display = "inline-block";
 }
 function switchCharacter2(){
     trainCharacter = 2;
+    characterWindow.remove();
+    document.getElementById("mainMenu").style.display = "inline-block";
 }
 
 function GameInitializer(){

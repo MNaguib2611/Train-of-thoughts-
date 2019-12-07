@@ -1,8 +1,12 @@
 var train1=new Train();
 var rails=new Array();
 var switchs=new Array();
-
+function trainHorn(){
+    var audio = new Audio ('./SoundEffects/train-pass-by-02.WAV');
+    audio.play();
+}
 function GameInitializer(){
+    trainHorn();
     train1.imgObj=document.getElementById("train1");
 for(i=0;i<=21;i++){
 rails[i]=new Rail();

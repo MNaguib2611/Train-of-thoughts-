@@ -50,7 +50,6 @@ function logIn()
         document.body.removeChild(mainMenuWindow);
         document.getElementsByClassName("game_screen")[0].style.display="block";
         GameInitializer();
-        var trainIntervalId=setInterval(tainMove,10);
     }
     var howToPlayButton = document.getElementById("HowToPlayButton");
     howToPlayButton.onclick = howToPlay;
@@ -130,7 +129,7 @@ function logIn()
         document.getElementById("mainMenu").style.display = "none";
         difficultyWindow = document.createElement("div");
         difficultyWindow.id = "difficulty";
-        difficultyWindow.innerHTML = "<h3>Difficulty </h3><button class=\"btn-primary btn-lg m-2\" id=\"EasyButton\" > Easy </button><br><button class=\"btn-warning btn-lg m-2\" id=\"MediumButton\" >Medium</button><br><button class=\"btn-danger btn-lg m-2\" id=\"HardButton\" >Hard</button><br>"
+        difficultyWindow.innerHTML = "<h3>Difficulty </h3><button class=\"btn-primary btn-lg m-2\" id=\"EasyButton\" onclick='setdifficulty(1)' > Easy </button><br><button class=\"btn-warning btn-lg m-2\" id=\"MediumButton\" onclick='setdifficulty(2)' >Medium</button><br><button class=\"btn-danger btn-lg m-2\" id=\"HardButton\" onclick='setdifficulty(3)'>Hard</button><br>"
         difficultyWindow.style.color = "white";
         difficultyWindow.style.width = "300px";
         var close = document.createElement("button");
@@ -149,6 +148,3 @@ function logIn()
     }
    
 }
-
-        
-

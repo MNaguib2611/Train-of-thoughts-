@@ -5,9 +5,34 @@ function trainHorn(){
     var audio = new Audio ('./SoundEffects/train-pass-by-02.WAV');
     audio.play();
 }
+//function GameInitializer(){
+    trainHorn();
+var trainCharacter = 1;
+var trainIntervalId;
+var speed=30;
+
+function switchCharacter1(){
+    trainCharacter = 1;
+    characterWindow.remove();
+    document.getElementById("mainMenu").style.display = "inline-block";
+}
+function switchCharacter2(){
+    trainCharacter = 2;
+    characterWindow.remove();
+    document.getElementById("mainMenu").style.display = "inline-block";
+}
+function setdifficulty(difficulty){
+    speed=30/difficulty;
+    difficultyWindow.remove();
+    document.getElementById("mainMenu").style.display = "inline-block";
+}
+
 function GameInitializer(){
     trainHorn();
+    trainIntervalId=setInterval(tainMove,speed);
+    train1.kind=4;
     train1.imgObj=document.getElementById("train1");
+    train1.imgObj.src="./img/train_"+trainCharacter+".png";
 for(i=0;i<=21;i++){
 rails[i]=new Rail();
 rails[i].imgObj=document.getElementsByClassName("rail"+(i+1))[0];
@@ -34,6 +59,9 @@ rails[1].direction=0;
  rails[3].nextType=2;
  rails[3].direction=1;
 
+ rails[4].nextId=6;
+ rails[4].nextType=3;
+ rails[4].direction=0;
 
  rails[5].nextId=18;
  rails[5].nextType=2;
@@ -196,7 +224,7 @@ function tainMove(){
                     train1.railId=switchs[train1.railId].nextId;
                         
                 break;
-                case 3:
+                case 3: 
                     //alert("done1");
                 break;
             }
@@ -207,12 +235,17 @@ function tainMove(){
                             //alert(train1.limit.x=rails[train1.railId].imgObj.height);
                             train1.limit.x+=rails[train1.railId].imgObj.height;
                             train1.direction=rails[train1.railId].direction;
-                            train1.imgObj.src="./img/train.png";
+                            if(rails[train1.railId].direction==1){
+                                train1.imgObj.src="./img/train_"+trainCharacter+".png";
+                            }
+                            else{
+                                train1.imgObj.src="./img/trainUp_"+trainCharacter+".png"
+                            }
                         }
                         else{
                             train1.limit.y+=rails[train1.railId].imgObj.height;
                             train1.direction=0;
-                            train1.imgObj.src="./img/trainSide.png";
+                            train1.imgObj.src="./img/trainSide_"+trainCharacter+".png";
                         }
                 break;
                 case 1:
@@ -229,11 +262,11 @@ function tainMove(){
                         }
                         train1.direction=switchs[train1.railId].direction;
                         if(train1.direction==1){
-                            train1.imgObj.src="./img/train.png";
+                            train1.imgObj.src="./img/train_"+trainCharacter+".png";
                         }else if(train1.direction==0){
-                            train1.imgObj.src="./img/trainSide.png";
+                            train1.imgObj.src="./img/trainSide_"+trainCharacter+".png";
                         }else if(train1.direction==2){
-                            train1.imgObj.src="./img/train.png";
+                            train1.imgObj.src="./img/train_"+trainCharacter+".png";
                         }
                 break;
                 case 2:
@@ -243,14 +276,19 @@ function tainMove(){
                         //debugger    
                         train1.direction=rails[train1.railId].direction;
                         if(train1.direction==1){
-                            train1.imgObj.src="./img/train.png";
+                            train1.imgObj.src="./img/train_"+trainCharacter+".png";
                         }else if(train1.direction==0){
-                            train1.imgObj.src="./img/trainSide.png";
+                            train1.imgObj.src="./img/trainSide_"+trainCharacter+".png";
                         }else if(train1.direction==2){
-                            train1.imgObj.src="./img/train.png";
+                            train1.imgObj.src="./img/trainUp_"+trainCharacter+".png";
                         }
                 break;
                 case 3:
+                        if(train1.kind==train1.railId){
+                            document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)+1;
+                            }
+                        
+                        clearInterval(trainIntervalId);
                         //alert("done2");
                 break;
             }
@@ -287,12 +325,17 @@ function tainMove(){
                         if(rails[train1.railId].direction==1||rails[train1.railId].direction==2){
                             train1.limit.x+=rails[train1.railId].imgObj.height;
                             train1.direction=rails[train1.railId].direction;
-                            train1.imgObj.src="./img/train.png";
+                            if(rails[train1.railId].direction==1){
+                                train1.imgObj.src="./img/train_"+trainCharacter+".png";
+                            }
+                            else{
+                                train1.imgObj.src="./img/trainUp_"+trainCharacter+".png"
+                            }
                         }
                         else{
                             train1.limit.y+=rails[train1.railId].imgObj.height;
                             train1.direction=0;
-                            train1.imgObj.src="./img/trainSide.png";
+                            train1.imgObj.src="./img/trainSide_"+trainCharacter+".png";
                         }
                 break;
                 case 1:
@@ -309,11 +352,11 @@ function tainMove(){
                         }
                         train1.direction=switchs[train1.railId].direction;
                         if(train1.direction==1){
-                            train1.imgObj.src="./img/train.png";
+                            train1.imgObj.src="./img/train_"+trainCharacter+".png";
                         }else if(train1.direction==0){
-                            train1.imgObj.src="./img/trainSide.png";
+                            train1.imgObj.src="./img/trainSide_"+trainCharacter+".png";
                         }else if(train1.direction==2){
-                            train1.imgObj.src="./img/train.png";
+                            train1.imgObj.src="./img/trainUp_"+trainCharacter+".png";
                         }
                 break;
                 case 2:
@@ -321,14 +364,18 @@ function tainMove(){
                         train1.limit.y+=45;
                         train1.direction=rails[train1.railId].direction;
                         if(train1.direction==1){
-                            train1.imgObj.src="./img/train.png";
+                            train1.imgObj.src="./img/train_"+trainCharacter+".png";
                         }else if(train1.direction==0){
-                            train1.imgObj.src="./img/trainSide.png";
+                            train1.imgObj.src="./img/trainSide_"+trainCharacter+".png";
                         }else if(train1.direction==2){
-                            train1.imgObj.src="./img/train.png";
+                            train1.imgObj.src="./img/trainUp_"+trainCharacter+".png";
                         }
                 break;
                 case 3:
+                        if(train1.kind==train1.railId){
+                            document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)+1;
+                            }
+                        clearInterval(trainIntervalId);
                         //alert("done4");
                 break;
             }
@@ -364,12 +411,17 @@ function tainMove(){
                     if(rails[train1.railId].direction==1||rails[train1.railId].direction==2){
                         train1.limit.x+=rails[train1.railId].imgObj.height;
                         train1.direction=rails[train1.railId].direction;
-                        train1.imgObj.src="./img/train.png";
+                        if(rails[train1.railId].direction==1){
+                            train1.imgObj.src="./img/train_"+trainCharacter+".png";
+                        }
+                        else{
+                            train1.imgObj.src="./img/trainUp_"+trainCharacter+".png"
+                        }
                     }
                     else{
                         train1.limit.y+=rails[train1.railId].imgObj.height;
                         train1.direction=0;
-                        train1.imgObj.src="./img/trainSide.png";
+                        train1.imgObj.src="./img/trainSide_"+trainCharacter+".png";
                     }
             break;
             case 1:
@@ -386,11 +438,11 @@ function tainMove(){
                     }
                     train1.direction=switchs[train1.railId].direction;
                     if(train1.direction==1){
-                        train1.imgObj.src="./img/train.png";
+                        train1.imgObj.src="./img/train_"+trainCharacter+".png";
                     }else if(train1.direction==0){
-                        train1.imgObj.src="./img/trainSide.png";
+                        train1.imgObj.src="./img/trainSide_"+trainCharacter+".png";
                     }else if(train1.direction==2){
-                        train1.imgObj.src="./img/train.png";
+                        train1.imgObj.src="./img/trainUp_"+trainCharacter+".png";
                     }
             break;
             case 2:
@@ -398,14 +450,18 @@ function tainMove(){
                     train1.limit.y+=45;
                     train1.direction=rails[train1.railId].direction;
                     if(train1.direction==1){
-                        train1.imgObj.src="./img/train.png";
+                        train1.imgObj.src="./img/train_"+trainCharacter+".png";
                     }else if(train1.direction==0){
-                        train1.imgObj.src="./img/trainSide.png";
+                        train1.imgObj.src="./img/trainSide_"+trainCharacter+".png";
                     }else if(train1.direction==2){
-                        train1.imgObj.src="./img/train.png";
+                        train1.imgObj.src="./img/trainUp_"+trainCharacter+".png";
                     }
             break;
             case 3:
+                    if(train1.kind==train1.railId){
+                        document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)+1;
+                        }
+                    clearInterval(trainIntervalId);
                     //alert("done4");
             break;
         }

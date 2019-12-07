@@ -6,7 +6,7 @@ function trainHorn(){
     audio.play();
 }
 //function GameInitializer(){
-    trainHorn();
+   // trainHorn();
 var trainCharacter = 1;
 var trainIntervalId;
 var speed=30;

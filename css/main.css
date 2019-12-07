@@ -314,14 +314,16 @@ body{
     width: 20px;
     height: 30px;
     margin-top: 22px;
+    margin-bottom: 20px;
     margin-left: 35px;
+    margin-right: 20px;
     z-index: 5;
 }
    
 
 #player-info{
     position: absolute;
-        bottom: 25px;
+        bottom: 30px;
         right: 25px;
         /* width:350px; */
         height: 150px;

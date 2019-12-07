@@ -3,17 +3,17 @@ var logInButton = document.getElementById("logInButton");
 logInButton.onclick = logIn;
 var user = document.getElementById("user");
 var userName=document.getElementById("PlayerName");
-function addPlayers (){
+var logInWidow = document.getElementById("logIn");
+function addPlayers (){ //storing the name of the user enters in the begining in localstorage
      var player ={
-         id : Date.now(),
+         //id : Date.now(),
          Name : userName.value}
     players.push(player);
      localStorage.setItem('PlayerName', JSON.stringify(player));
      player = JSON.parse(localStorage.getItem('players'));
       }
-logInButton.addEventListener('click',addPlayers);
 function displayPlayerName  (){
-    user.textContent = userName.value;
+    user.textContent = userName.value;  
 }
 function welcomeSound(){
     var audio = new Audio ('./SoundEffects/train-whistle-01.WAV');
@@ -23,22 +23,25 @@ function welcomeSound(){
 
 function logIn()
 { 
-    welcomeSound();
     if (userName.value =="") {
         userName.style.border="3px solid red";
+        userName.style.textTransform="capitalize";
+        logInWidow.style.border="3px solid red";
         userName.classList.add('red-placeholder');
+        buzzerSound();
        
     } else {
-        var logInWidow = document.getElementById("logIn");
-        addPlayers();
-        displayPlayerName();
+        welcomeSound();
+        
+        addPlayers();  //puts player's name in local storage
+        displayPlayerName();//puts player's name in game_play_div
     
         // logInWidow.style.display = "none";
         document.body.removeChild(logInWidow);
-        mainMenuDisplay();
+        mainMenuDisplay(); 
     }
 }
-        function mainMenuDisplay()
+        function mainMenuDisplay()  //function to show the main menu after entering player's name
         {
         var mainMenuWindow = document.createElement("div");
         mainMenuWindow.innerHTML =  '<h1>Train of Thought</h1><button id="StartButton" class="btn-info btn-lg m-2" >Start</button><br><button id="characterButton" class="btn-info btn-lg m-2" >Choose Character</button><br><button id="DifficultyButton" class="btn-info btn-lg m-2" >Difficulty</button><br><button id="HowToPlayButton" class="btn-info btn-lg m-2" >How To Play</button><br><button id="CreditsButton" class="btn-info btn-lg m-2" >Credits</button>';
@@ -47,8 +50,7 @@ function logIn()
         
     var startButton = document.getElementById("StartButton");
     startButton.onclick = startGame;
-    function startGame () {
-        // document.getElementById("mainMenu").style.display = "none";        
+    function startGame () {      
         document.body.removeChild(mainMenuWindow);
         document.getElementsByClassName("game_screen")[0].style.display="block";
         GameInitializer();
@@ -59,7 +61,7 @@ function logIn()
         document.getElementById("mainMenu").style.display = "none";
         howToPlayWindow = document.createElement("div");
         howToPlayWindow.id = "howToPlay";
-        howToPlayWindow.innerHTML = "<p>Your task is to guide an increasing number of trains to their stations. You must divide your attention to guide them all simultaneously.<br> Attention is a limited resource that can track only so much information at once — so you must use your attention efficiently by planning ahead.</p>";
+        howToPlayWindow.innerHTML = "<p>Your task is to guide an increasing number of trains to their stations using your mouse. You must divide your attention to guide them all simultaneously.<br> Attention is a limited resource that can track only so much information at once — so you must use your attention efficiently by planning ahead.</p>";
         howToPlayWindow.style.color = "white";
         var close = document.createElement("button");
         close.style.backgroundColor = "white";
@@ -97,8 +99,9 @@ function logIn()
         document.body.appendChild(characterWindow);
     }
     
-    function switchCharacter1(){
-        trainCharacter = 1;
+
+    function switchCharacter1(){ //choose which train character to play with
+        trainCharacter = 1;  
     }
     function switchCharacter2(){
         trainCharacter = 0;
@@ -152,6 +155,6 @@ function logIn()
     function menuBack(){
         document.getElementsByClassName("game_screen")[0].style.display="none";
         mainMenuDisplay();
-        clearInterval(trainIntervalId);
+        clearInterval(trainIntervalId); //stops generating trains
     }
    

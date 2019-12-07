@@ -128,9 +128,9 @@ body{
     margin-top: 319px;
 }
 .rail5{
-    height: 100px;
-    margin-left: 244px;
-    margin-top: 535px;
+    height: 120px;
+    margin-left: 250px;
+    margin-top: 524px;
     transform: rotate(90deg);
 }
 
@@ -228,7 +228,8 @@ body{
 .switchs{
     position: absolute;
     height: 50px;
-    width: 50px;    
+    width: 50px; 
+    z-index:1;   
 }
 .switch1{
     margin-top: 200px;
@@ -260,46 +261,46 @@ body{
 
 .station{
     position: absolute;
-    width: 60px;
-    height: 60px;
+    width: 120px;
+    height: 100px;
     z-index: 10000;
 }
 .station1{
     position: absolute;
-    top:150px;
-    left:430px;
+    top:120px;
+    left:410px;
 }
 .station2{
     position: absolute;
-    top:145px;
-    left:745px;
+    top:125px;
+    left:705px;
 }
 .station3{
     position: absolute;
-    top:0px;
-    left:1130px;
+    top:-5px;
+    left:1080px;
 }
 .station4{
     position: absolute;
-    top:390px;
-    left:350px;
+    top:370px;
+    left:320px;
 }
 
 .station5{
     position: absolute;
-    top:470px;
-    left:640px;
+    top:450px;
+    left:620px;
 }
 .station6{
     position: absolute;
-    top:250px;
-    left:985px;
+    top:225px;
+    left:960px;
 }
 
 .station7{
     position: absolute;
-    top:540px;
-    left:290px;
+    top:525px;
+    left:270px;
 }
 .start{
     position: absolute;
@@ -307,17 +308,17 @@ body{
     height: 50px;
     margin-top: 20px;
     margin-left: 20px;
-    z-index: 7;
+    z-index: 70;
 }
 .train{
     position: absolute;
     width: 20px;
     height: 30px;
     margin-top: 22px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     margin-left: 35px;
-    margin-right: 20px;
-    z-index: 5;
+    margin-right: 50px;
+    z-index: 10;
 }
    
 
@@ -327,8 +328,8 @@ body{
         right: 25px;
         /* width:350px; */
         height: 150px;
-        border: 1 solid gray;
-        box-shadow: 0px 0px 20px  yellowgreen;
+        border: 3 solid gray;
+        box-shadow: 0px 0px 30px  yellowgreen;
         opacity: .5;
         font-family: 'Times New Roman', Times, serif;
         color: white;

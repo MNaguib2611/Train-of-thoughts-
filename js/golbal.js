@@ -1,6 +1,12 @@
 var train1=new Train();
 var rails=new Array();
 var switchs=new Array();
+function trainHorn(){
+    var audio = new Audio ('./SoundEffects/train-pass-by-02.WAV');
+    audio.play();
+}
+//function GameInitializer(){
+    trainHorn();
 var trainCharacter = 1;
 var trainIntervalId;
 var speed=30;
@@ -22,6 +28,7 @@ function setdifficulty(difficulty){
 }
 
 function GameInitializer(){
+    trainHorn();
     trainIntervalId=setInterval(tainMove,speed);
     train1.kind=4;
     train1.imgObj=document.getElementById("train1");

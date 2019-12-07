@@ -15,12 +15,16 @@ logInButton.addEventListener('click',addPlayers);
 function displayPlayerName  (){
     user.textContent = userName.value;
 }
-
+function trainHorn(){
+    var audio = new Audio ('./SoundEffects/train-pass-by-01.WAV');
+    audio.play();
+}
 
 
 
 function logIn()
 { 
+    trainHorn();
     if (userName.value =="") {
         userName.style.border="3px solid red";
         userName.classList.add('red-placeholder');

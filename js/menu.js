@@ -15,12 +15,15 @@ logInButton.addEventListener('click',addPlayers);
 function displayPlayerName  (){
     user.textContent = userName.value;
 }
-
-
+function welcomeSound(){
+    var audio = new Audio ('./SoundEffects/train-whistle-01.WAV');
+    audio.play();
+}
 
 
 function logIn()
 { 
+    welcomeSound();
     if (userName.value =="") {
         userName.style.border="3px solid red";
         userName.classList.add('red-placeholder');
@@ -32,21 +35,23 @@ function logIn()
     
         // logInWidow.style.display = "none";
         document.body.removeChild(logInWidow);
-    
-    
+        mainMenuDisplay();
+    }
+}
+        function mainMenuDisplay()
+        {
         var mainMenuWindow = document.createElement("div");
         mainMenuWindow.innerHTML =  '<h1>Train of Thought</h1><button id="StartButton" class="btn-info btn-lg m-2" >Start</button><br><button id="characterButton" class="btn-info btn-lg m-2" >Choose Character</button><br><button id="DifficultyButton" class="btn-info btn-lg m-2" >Difficulty</button><br><button id="HowToPlayButton" class="btn-info btn-lg m-2" >How To Play</button><br><button id="CreditsButton" class="btn-info btn-lg m-2" >Credits</button>';
         mainMenuWindow.id = "mainMenu";
         document.body.appendChild(mainMenuWindow);
         
-        var startButton = document.getElementById("StartButton");
+    var startButton = document.getElementById("StartButton");
     startButton.onclick = startGame;
     function startGame () {
         // document.getElementById("mainMenu").style.display = "none";        
         document.body.removeChild(mainMenuWindow);
         document.getElementsByClassName("game_screen")[0].style.display="block";
         GameInitializer();
-        var trainIntervalId=setInterval(tainMove,10);
     }
     var howToPlayButton = document.getElementById("HowToPlayButton");
     howToPlayButton.onclick = howToPlay;
@@ -75,7 +80,7 @@ function logIn()
         document.getElementById("mainMenu").style.display = "none";
         characterWindow = document.createElement("div");
         characterWindow.id = "character";
-        characterWindow.innerHTML = "<div class=\"block\"><h3>Electric Train</h3><br><img id=\"train1\" onclick='switchCharacter1()' src=\"img/backGround.jpg\"></div><div class=\"block\"><h3>Steam Train</h3><br><img id=\"train2\" onclick=\"switchCharacter2()\" src=\"img/bg2.jpg\"></div>"
+        characterWindow.innerHTML = "<div class=\"block\"><h3>Coal Train</h3><br><img id=\"train1\" onclick='switchCharacter1()' src=\"img/trainSide_1.png\"></div><div class=\"block\"><h3>Passenger Train</h3><br><img id=\"train2\" onclick=\"switchCharacter2()\" src=\"img/trainSide_2.png\"></div>"
         characterWindow.style.margin = "0,auto";
         var close = document.createElement("button");
         close.style.backgroundColor = "white";
@@ -126,7 +131,7 @@ function logIn()
         document.getElementById("mainMenu").style.display = "none";
         difficultyWindow = document.createElement("div");
         difficultyWindow.id = "difficulty";
-        difficultyWindow.innerHTML = "<h3>Difficulty </h3><button class=\"btn-primary btn-lg m-2\" id=\"EasyButton\" > Easy </button><br><button class=\"btn-warning btn-lg m-2\" id=\"MediumButton\" >Medium</button><br><button class=\"btn-danger btn-lg m-2\" id=\"HardButton\" >Hard</button><br>"
+        difficultyWindow.innerHTML = "<h3>Difficulty </h3><button class=\"btn-primary btn-lg m-2\" id=\"EasyButton\" onclick='setdifficulty(1)' > Easy </button><br><button class=\"btn-warning btn-lg m-2\" id=\"MediumButton\" onclick='setdifficulty(2)' >Medium</button><br><button class=\"btn-danger btn-lg m-2\" id=\"HardButton\" onclick='setdifficulty(3)'>Hard</button><br>"
         difficultyWindow.style.color = "white";
         difficultyWindow.style.width = "300px";
         var close = document.createElement("button");
@@ -142,9 +147,11 @@ function logIn()
         difficultyWindow.appendChild(close);
         document.body.appendChild(difficultyWindow);
     }
+}
+    document.getElementById("menuBackButton").onclick= menuBack;
+    function menuBack(){
+        document.getElementsByClassName("game_screen")[0].style.display="none";
+        mainMenuDisplay();
+        clearInterval(trainIntervalId);
     }
    
-}
-
-        
-

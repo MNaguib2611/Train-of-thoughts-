@@ -38,7 +38,7 @@ function howToPlay () {
     howToPlayWindow.appendChild(close);
     document.body.appendChild(howToPlayWindow);
 }
-var trainCharacter = 0;
+
 var characterButton = document.getElementById("characterButton");
 characterButton.onclick = chooseCharacter;
 function chooseCharacter() {
@@ -60,13 +60,6 @@ function chooseCharacter() {
     }
     characterWindow.appendChild(close);
     document.body.appendChild(characterWindow);
-}
-
-function switchCharacter1(){
-    trainCharacter = 1;
-}
-function switchCharacter2(){
-    trainCharacter = 0;
 }
 
 var creditsButton = document.getElementById("CreditsButton");

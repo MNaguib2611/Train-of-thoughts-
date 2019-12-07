@@ -3,6 +3,7 @@ var rails=new Array();
 var switchs=new Array();
 var trainCharacter = 1;
 var trainIntervalId;
+var speed=30;
 
 function switchCharacter1(){
     trainCharacter = 1;
@@ -14,9 +15,14 @@ function switchCharacter2(){
     characterWindow.remove();
     document.getElementById("mainMenu").style.display = "inline-block";
 }
+function setdifficulty(difficulty){
+    speed=30/difficulty;
+    difficultyWindow.remove();
+    document.getElementById("mainMenu").style.display = "inline-block";
+}
 
 function GameInitializer(){
-    trainIntervalId=setInterval(tainMove,10);
+    trainIntervalId=setInterval(tainMove,speed);
     train1.kind=4;
     train1.imgObj=document.getElementById("train1");
     train1.imgObj.src="./img/train_"+trainCharacter+".png";

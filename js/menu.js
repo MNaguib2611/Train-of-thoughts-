@@ -3,6 +3,11 @@ var logInButton = document.getElementById("logInButton");
 logInButton.onclick = logIn;
 var user = document.getElementById("user");
 var userName=document.getElementById("PlayerName");
+userName.addEventListener("keypress",function(e){
+    if (e.keyCode === 13) {
+        logIn();
+    }
+});
 var logInWidow = document.getElementById("logIn");
 function addPlayers (){ //storing the name of the user enters in the begining in localstorage
      var player ={

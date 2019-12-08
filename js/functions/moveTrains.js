@@ -1,4 +1,4 @@
-function tainMove(index){  //the function responsible for moving the trains
+function trainMove(index){  //the function responsible for moving the trains
     if(trains[index].direction==1){ //direction 1 ->the train is moving down
         if(trains[index].limit.x > 0){ //if there is still any length in the rail
             var old  =trains[index].imgObj.style["margin-top"];
@@ -64,6 +64,7 @@ function tainMove(index){  //the function responsible for moving the trains
                         }else if(trains[index].direction==2){
                             trains[index].imgObj.src="./img/train_"+trainCharacter+"_"+trains[index].kind+".png";
                         }
+                        switchs[trains[index]].imgObj.disabled="true";
                 break;
                 case 2:
                         //alert("hello");
@@ -158,6 +159,7 @@ function tainMove(index){  //the function responsible for moving the trains
                         }else if(trains[index].direction==2){
                             trains[index].imgObj.src="./img/trainUp_"+trainCharacter+"_"+trains[index].kind+".png";
                         }
+                        switchs[trains[index]].imgObj.disabled="true";
                 break;
                 case 2:
                         trains[index].limit.x+=45;
@@ -247,6 +249,7 @@ function tainMove(index){  //the function responsible for moving the trains
                     }else if(trains[index].direction==2){
                         trains[index].imgObj.src="./img/trainUp_"+trainCharacter+"_"+trains[index].kind+".png";
                     }
+                    switchs[trains[index]].imgObj.disabled="true";
             break;
             case 2:
                     trains[index].limit.x+=45;

@@ -157,6 +157,6 @@ switchs[5].state=1;
         trains[i].limit=new Point(rails[trains[i].railId].imgObj.height,0);
     }
     for(let j=0;j<50;j++){
-    setTimeout(function(){trainIntervalId[j]=setInterval(function() { tainMove(j); },speed)},((10000/(30/speed)))*j);
+    setTimeout(function(){trainIntervalId[j]=setInterval(function() { trainMove(j); },speed)},((10000/(30/speed)))*j);
 }
 }

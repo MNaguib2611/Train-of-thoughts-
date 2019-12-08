@@ -16,6 +16,11 @@ function trainMove(index){  //the function responsible for moving the trains
                         
                 break;
                 case 1:
+                    //unlock the switch
+                    var onClickValue=switchs[trains[index].railId].imgObj.getAttribute("onclick");
+                    onClickValue=onClickValue.replace("false","true");
+                    switchs[trains[index].railId].imgObj.setAttribute("onclick",onClickValue);
+                    
                     trains[index].railType=switchs[trains[index].railId].nextType;
                     trains[index].railId=switchs[trains[index].railId].nextId;
                         
@@ -64,7 +69,10 @@ function trainMove(index){  //the function responsible for moving the trains
                         }else if(trains[index].direction==2){
                             trains[index].imgObj.src="./img/train_"+trainCharacter+"_"+trains[index].kind+".png";
                         }
-                        switchs[trains[index]].imgObj.disabled="true";
+                        //lock switch
+                        var onClickValue=switchs[trains[index].railId].imgObj.getAttribute("onclick");
+                        onClickValue=onClickValue.replace("true","false");
+                        switchs[trains[index].railId].imgObj.setAttribute("onclick",onClickValue);
                 break;
                 case 2:
                         //alert("hello");
@@ -112,6 +120,11 @@ function trainMove(index){  //the function responsible for moving the trains
                     
                 break;
                 case 1:
+                        //unlock the switch
+                        var onClickValue=switchs[trains[index].railId].imgObj.getAttribute("onclick");
+                        onClickValue=onClickValue.replace("false","true");
+                        switchs[trains[index].railId].imgObj.setAttribute("onclick",onClickValue);
+                
                         trains[index].railType=switchs[trains[index].railId].nextType;
                         trains[index].railId=switchs[trains[index].railId].nextId;
                         
@@ -159,7 +172,10 @@ function trainMove(index){  //the function responsible for moving the trains
                         }else if(trains[index].direction==2){
                             trains[index].imgObj.src="./img/trainUp_"+trainCharacter+"_"+trains[index].kind+".png";
                         }
-                        switchs[trains[index]].imgObj.disabled="true";
+                        //lock switch
+                        var onClickValue=switchs[trains[index].railId].imgObj.getAttribute("onclick");
+                        onClickValue=onClickValue.replace("true","false");
+                        switchs[trains[index].railId].imgObj.setAttribute("onclick",onClickValue);
                 break;
                 case 2:
                         trains[index].limit.x+=45;
@@ -202,6 +218,11 @@ function trainMove(index){  //the function responsible for moving the trains
                 
             break;
             case 1:
+                    //unlock the switch
+                    var onClickValue=switchs[trains[index].railId].imgObj.getAttribute("onclick");
+                    onClickValue=onClickValue.replace("false","true");
+                    switchs[trains[index].railId].imgObj.setAttribute("onclick",onClickValue);
+
                     trains[index].railType=switchs[trains[index].railId].nextType;
                     trains[index].railId=switchs[trains[index].railId].nextId;
                     
@@ -249,7 +270,10 @@ function trainMove(index){  //the function responsible for moving the trains
                     }else if(trains[index].direction==2){
                         trains[index].imgObj.src="./img/trainUp_"+trainCharacter+"_"+trains[index].kind+".png";
                     }
-                    switchs[trains[index]].imgObj.disabled="true";
+                    //lock switch
+                    var onClickValue=switchs[trains[index].railId].imgObj.getAttribute("onclick");
+                    onClickValue=onClickValue.replace("true","false");
+                    switchs[trains[index].railId].imgObj.setAttribute("onclick",onClickValue);
             break;
             case 2:
                     trains[index].limit.x+=45;

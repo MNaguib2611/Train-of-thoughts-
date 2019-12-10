@@ -308,7 +308,6 @@ function trainMove(index){  //the function responsible for moving the trains
                         if(parseInt(document.getElementById("scoreValue").innerText) >0){
                             document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)-50;
                         }
-                        
                         document.getElementById("scoreValue").style.color="red";
                         buzzerSound();
                     }

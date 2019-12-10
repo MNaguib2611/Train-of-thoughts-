@@ -89,12 +89,18 @@ function trainMove(index){  //the function responsible for moving the trains
                         }
                 break;
                 case 3:
-                        if(trains[index].kind==trains[index].railId+1){
-                            document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)+100;
-                                scoreSound();
-                            }else{
-                                buzzerSound();
+                    if(trains[index].kind==trains[index].railId+1){
+                        document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)+100;
+                        document.getElementById("scoreValue").style.color="yellowgreen";
+                        scoreSound();
+                        }else{
+                            if(parseInt(document.getElementById("scoreValue").innerText) >0){
+                                document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)-50;
                             }
+                            
+                            document.getElementById("scoreValue").style.color="red";
+                            buzzerSound();
+                        }
                            
                         clearInterval(trainIntervalId[index]);
                        
@@ -192,8 +198,14 @@ function trainMove(index){  //the function responsible for moving the trains
                 case 3:
                         if(trains[index].kind==trains[index].railId+1){
                             document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)+100;
+                            document.getElementById("scoreValue").style.color="yellowgreen";
                             scoreSound();
                             }else{
+                                if(parseInt(document.getElementById("scoreValue").innerText) >0){
+                                    document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)-50;
+                                }
+                                
+                                document.getElementById("scoreValue").style.color="red";
                                 buzzerSound();
                             }
                         clearInterval(trainIntervalId[index]);
@@ -288,12 +300,18 @@ function trainMove(index){  //the function responsible for moving the trains
                     }
             break;
             case 3:
-                    if(trains[index].kind==trains[index].railId+1){
-                        document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)+100;
-                        scoreSound();
-                        }else{
-                            buzzerSound();
+                if(trains[index].kind==trains[index].railId+1){
+                    document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)+100;
+                    document.getElementById("scoreValue").style.color="yellowgreen";
+                    scoreSound();
+                    }else{
+                        if(parseInt(document.getElementById("scoreValue").innerText) >0){
+                            document.getElementById("scoreValue").innerText=parseInt(document.getElementById("scoreValue").innerText)-50;
                         }
+                        
+                        document.getElementById("scoreValue").style.color="red";
+                        buzzerSound();
+                    }
                     clearInterval(trainIntervalId[index]);
             break;
         }

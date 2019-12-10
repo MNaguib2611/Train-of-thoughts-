@@ -354,3 +354,7 @@ body{
 .red-placeholder::-webkit-input-placeholder {
     color: red;
  }
+
+ h3{
+     font-weight: bolder;
+ }
